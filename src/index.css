@@ -5,6 +5,40 @@
 body {
     height: 100vh;
     color: black;
-    padding: 0px 20px;
+    padding: 0px;
     background-color: #DBF9FC;
+}
+
+
+.AccordionChevron {
+    transform: rotate(270deg);
+    transition: transform 300ms;
+}
+.AccordionTrigger[data-state='open'] .AccordionChevron {
+    transform: rotate(360deg);
+}
+.AccordionContent {
+    overflow: hidden;
+}
+.AccordionContent[data-state='open'] {
+    animation: slideDown 300ms ease-out;
+}
+.AccordionContent[data-state='closed'] {
+    animation: slideUp 300ms ease-out;
+}
+@keyframes slideDown {
+    from {
+        height: 0;
+    }
+    to {
+        height: var(--radix-accordion-content-height);
+    }
+}
+@keyframes slideUp {
+    from {
+        height: var(--radix-accordion-content-height);
+    }
+    to {
+        height: 0;
+    }
 }
