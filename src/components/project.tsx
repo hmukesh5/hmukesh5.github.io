@@ -1,7 +1,13 @@
 import * as Accordion from '@radix-ui/react-accordion';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 
-const Project = ({value, project_title, content}) => (
+type ProjectProps = {
+    value: string;
+    project_title: React.ReactNode;
+    content: React.ReactNode;
+  };
+
+const Project: React.FC<ProjectProps> = ({value, project_title, content}) => (
     <Accordion.Item value={value}>
         <Accordion.Header>
         <Accordion.Trigger className="AccordionTrigger">
