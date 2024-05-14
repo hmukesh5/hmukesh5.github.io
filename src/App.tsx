@@ -1,5 +1,4 @@
 import * as Accordion from '@radix-ui/react-accordion';
-import { ChevronDownIcon } from '@radix-ui/react-icons';
 import Project from './components/project.tsx';
 
 function App() {
