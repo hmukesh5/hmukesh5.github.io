@@ -2,13 +2,18 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@font-face {
+    font-family: "spacemono";
+    src: url('data/spacemono/SpaceMono-Regular.ttf') format('truetype');
+}
+
 body {
     height: 100vh;
     color: black;
     padding: 0px;
-    background-color: #DBF9FC;
+    background-color: white;
+    font-family: 'spacemono', sans-serif;
 }
-
 
 .AccordionChevron {
     transform: rotate(270deg);

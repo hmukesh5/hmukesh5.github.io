@@ -3,7 +3,7 @@ import Project from './components/project.tsx';
 
 function App() {
     return (
-        <div className="min-h-screen max-w-4xl mx-auto py-8 px-6 font-sans">
+        <div className="min-h-screen max-w-4xl mx-auto py-8 px-6">
 
             <div className="mt-4 mb-8">
                 <p className="text-center font-bold text-5xl">Hemanth Mukesh</p>
@@ -13,13 +13,31 @@ function App() {
                 <h3 className="font-bold text-2xl underline mb-4">projects</h3>
                 
                 <Accordion.Root type='multiple' className="flex flex-col gap-3">
-                    <Project value="wordle" project_title={<>wordle by hemanth</>} content={
+                    <Project value="portfolio" project_title={<>this website</>} content={
                         <>
-                            A simple wordle clone built with React.ddddd ddd ddddddd dd ddddddd d ddddd ddddd dddd dddd dddd d dddddddd dddddddd ddddddd ddddd ddddd ddd dd dddddd d
+                            The website you are currently viewing! Built with React and Tailwind CSS.
                         </>
                     } />
 
+                    <Project value="wordle" project_title={<>wordle by hemanth | <a href="http://wordle-clone-5fbt.onrender.com/" target="_blank" className="underline">link</a></>} content={
+                        <>
+                            A clone of the popular Wordle game, built with React.
+                            <br />
+                            <a href="https://github.com/hmukesh5/wordle-clone" className='underline' target='_blank'>Github</a>
+                            <br />
+                            <a href="https://wordle-clone-5fbt.onrender.com/" className='underline' target='_blank'>Link to project</a>
+                        </>
+                    } />                    
+
                     <Project value="choredash" project_title={<>ChoreDash</>} content={
+                        <>test</>
+                    } />
+
+                    <Project value="jerma" project_title={<>Jerma985 Discord Bot</>} content={
+                        <>test</>
+                    } />
+
+                    <Project value="network" project_title={<>C++ Network Applications</>} content={
                         <>test</>
                     } />
                 </Accordion.Root>
