@@ -17,13 +17,13 @@ const Project: React.FC<ProjectProps> = ({value, project_title, content, expande
         }}>
             <div className="flex justify-center items-center gap-x-2">
             <ChevronDownIcon className="AccordionChevron" aria-hidden />
-            <div className='font-bold text-xl'>
+            <div className='font-bold text-base sm:text-xl'>
                 {project_title}
             </div>
             </div>
         </Accordion.Trigger>
         </Accordion.Header>
-        <Accordion.Content className="AccordionContent ml-6 text-lg">
+        <Accordion.Content className="AccordionContent ml-6 text-base sm:text-lg">
         {content}
         </Accordion.Content>
     </Accordion.Item>

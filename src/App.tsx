@@ -44,7 +44,7 @@ function App() {
         },
         {
             value: "jerma",
-            title: <>Jerma985 Discord Bot | <a href="https://github.com/prknezek/Jerma985Bot" target="_blank" className="underline">github repo</a></>,
+            title: <>Jerma985 Discord Bot | <a href="https://github.com/prknezek/Jerma985Bot" target="_blank" className="underline">github</a></>,
             content:<>
                         A Discord bot based on the popular Twitch streamer Jerma985.
                         Built in Python with the {nextcordLink} module.
@@ -82,7 +82,7 @@ function App() {
                 <a className={darkMode ? "invert" : ""} href="https://github.com/hmukesh5" target="_blank"><img src={github} width={30} height={30}></img></a>
             </div>
 
-            <div className="mb-4 text-lg">
+            <div className="mb-4 text-base sm:text-lg">
                 <p>Hello! My name is Hemanth Mukesh, and I'm a computer science senior at Texas A&M University. 
                    Below is a collection of projects I've worked on both in and out of college.
                    Feel free to contact me at <a className="underline" href="mailto:hmukesh@outlook.com">hmukesh@outlook.com</a>!
@@ -91,8 +91,8 @@ function App() {
 
             <div className="max-w-fit">
 
-                <div className="flex align-middle mb-4">
-                    <h3 className="font-bold text-2xl underline">projects</h3>
+                <div className="flex align-middle mb-4 mt-6">
+                    <h3 className="font-bold text-xl sm:text-2xl underline">projects</h3>
                     <button onClick={expandAll} className={`ml-4 border-black border-2 rounded text-base px-2 ${darkMode ? 'border-white' : 'border-black'}`}>
                         {expandedItems.length === projects.length ? "collapse all" : "expand all"}
                     </button>
@@ -113,7 +113,7 @@ function App() {
             
             <br/>
             <div className="">
-                <p className="text-lg mr-2 inline align-middle">Toggle dark mode:</p>
+                <p className="text-base sm:text-lg mr-2 inline align-middle">Toggle dark mode:</p>
 
                 <Switch.Root className="SwitchRoot inline align-middle" id="airplane-mode" onCheckedChange={(checked) => {
                     setDarkMode(checked);
