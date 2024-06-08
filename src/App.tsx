@@ -92,7 +92,7 @@ function App() {
             <div className="max-w-fit">
                 <div className="flex align-middle mb-4 mt-6">
                     <h3 className="font-bold text-xl sm:text-2xl underline">projects</h3>
-                    <button onClick={expandAll} className={`ml-4 border-black border-2 rounded text-base px-2 ${darkMode ? 'border-white' : 'border-black'}`}>
+                    <button onClick={expandAll} className={`ml-4 border-black border-2 rounded text-base px-2 ${darkMode ? 'border-slate-300' : 'border-black'}`}>
                         {expandedItems.length === projects.length ? "collapse all" : "expand all"}
                     </button>
                 </div>
@@ -112,7 +112,7 @@ function App() {
             
             <br/>
             <div className="">
-                <p className="text-base sm:text-lg mr-2 inline align-middle">Toggle dark mode:</p>
+                <p className="text-base sm:text-lg mr-2 inline align-top">dark mode:</p>
 
                 <Switch.Root className="SwitchRoot inline align-middle" id="airplane-mode" onCheckedChange={(checked) => {
                     setDarkMode(checked);

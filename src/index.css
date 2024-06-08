@@ -53,13 +53,13 @@ body {
 .SwitchRoot {
     width: 42px;
     height: 25px;
-    background-color: #8d8d8d;
+    background-color: #d7d7d7;
     border-radius: 9999px;
     position: relative;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .SwitchRoot[data-state='checked'] {
-    background-color: #dbdbdb;
+    background-color: #414141;
 }
   
 .SwitchThumb {
@@ -75,5 +75,5 @@ body {
 }
 .SwitchThumb[data-state='checked'] {
     transform: translateX(19px);
-    background-color: #121212;
+    background-color: #e6e6e6;
 }
