@@ -24,17 +24,20 @@ function App() {
         {
             value: "portfolio",
             title: <>this website</>,
+            link: <></>,
             content: <>The website you are currently viewing!
                        Built with {reactLink} and {tailwindCSSLink}.</>
         },
         {
             value: "wordle",
-            title: <>wordle by hemanth | <a href="http://wordle-clone-5fbt.onrender.com/" target="_blank" className="underline">link</a></>,
+            title: <>wordle by hemanth | </>,
+            link: <a href="http://wordle-clone-5fbt.onrender.com/" target="_blank" className="underline">link</a>,
             content: <>A word puzzle as a web app inspired by the popular {wordleLink} game. Built with {reactLink}.</>
         },
         {
             value: "choredash",
-            title: <>ChoreDash | <a href="https://hmukesh.itch.io/chore-dash" target="_blank" className="underline">homepage</a></>,
+            title: <>ChoreDash | </>,
+            link: <a href="https://hmukesh.itch.io/chore-dash" target="_blank" className="underline">homepage</a>,
             content:<>
                         A short 2D game where you control a character who must rush to complete chores before their mom comes home.
                         Built in Python with the {pygameLink} module.
@@ -44,7 +47,8 @@ function App() {
         },
         {
             value: "jerma",
-            title: <>Jerma985 Discord Bot | <a href="https://github.com/prknezek/Jerma985Bot" target="_blank" className="underline">github</a></>,
+            title: <>Jerma985 Discord Bot | </>,
+            link: <a href="https://github.com/prknezek/Jerma985Bot" target="_blank" className="underline">github</a>,
             content:<>
                         A Discord bot based on the popular Twitch streamer Jerma985.
                         Built in Python with the {nextcordLink} module.
@@ -55,6 +59,7 @@ function App() {
         {
             value: "network",
             title: <>C++ Network Applications</>,
+            link: <></>,
             content:<>
                         During CSCE 463 - Networks and Distributed Processing at TAMU, I created a suite of various network applications. While I cannot share the codebase due to academic policies, I am working on a way to allow remote execution on a server.
                         Built in C++ with Visual Studio.
@@ -102,6 +107,7 @@ function App() {
                         <Project
                             value={project.value}
                             project_title={project.title}
+                            project_link={project.link}
                             content={project.content}
                             expandedItems={expandedItems}
                             setExpandedItems={setExpandedItems}
