@@ -71,10 +71,10 @@ function App() {
     }
 
     return (
-        <div className="min-h-screen max-w-4xl mx-auto py-8 px-6">
+        <div className="min-h-screen max-w-4xl mx-auto py-6 sm:py-8 px-4 sm:px-6">
 
             <div className="mb-4">
-                <p className="text-center font-bold text-5xl">Hemanth Mukesh</p>                
+                <p className="text-center font-bold text-4xl sm:text-5xl">Hemanth Mukesh</p>                
             </div>
 
             <div className="mt-5 mb-5 flex justify-evenly m-auto w-40">
@@ -90,7 +90,6 @@ function App() {
             </div>
 
             <div className="max-w-fit">
-
                 <div className="flex align-middle mb-4 mt-6">
                     <h3 className="font-bold text-xl sm:text-2xl underline">projects</h3>
                     <button onClick={expandAll} className={`ml-4 border-black border-2 rounded text-base px-2 ${darkMode ? 'border-white' : 'border-black'}`}>
