@@ -110,6 +110,17 @@ function App() {
                     ))}
                 </Accordion.Root>
             </div>
+            
+            <br/>
+            <div className="">
+                <p className="text-lg mr-2 inline align-middle">Toggle dark mode:</p>
+
+                <Switch.Root className="SwitchRoot inline align-middle" id="airplane-mode" onCheckedChange={(checked) => {
+                    setDarkMode(checked);
+                }}>
+                    <Switch.Thumb className="SwitchThumb" />
+                </Switch.Root>
+            </div>
 
         </div>
     )
