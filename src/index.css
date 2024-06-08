@@ -48,3 +48,32 @@ body {
         height: 0;
     }
 }
+
+
+.SwitchRoot {
+    width: 42px;
+    height: 25px;
+    background-color: #8d8d8d;
+    border-radius: 9999px;
+    position: relative;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.SwitchRoot[data-state='checked'] {
+    background-color: #dbdbdb;
+}
+  
+.SwitchThumb {
+    display: block;
+    width: 21px;
+    height: 21px;
+    background-color: white;
+    border-radius: 9999px;
+    box-shadow: 0 2px 2px var(--black-a7);
+    transition: transform 100ms;
+    transform: translateX(2px);
+    will-change: transform;
+}
+.SwitchThumb[data-state='checked'] {
+    transform: translateX(19px);
+    background-color: black;
+}

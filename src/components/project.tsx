@@ -5,12 +5,16 @@ type ProjectProps = {
     value: string;
     project_title: React.ReactNode;
     content: React.ReactNode;
+    expandedItems: string[];
+    setExpandedItems: React.Dispatch<React.SetStateAction<string[]>>;
   };
 
-const Project: React.FC<ProjectProps> = ({value, project_title, content}) => (
+const Project: React.FC<ProjectProps> = ({value, project_title, content, expandedItems, setExpandedItems}) => (    
     <Accordion.Item value={value}>
         <Accordion.Header>
-        <Accordion.Trigger className="AccordionTrigger">
+        <Accordion.Trigger className="AccordionTrigger" onClick={() => {
+            setExpandedItems((prev) => prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value]);
+        }}>
             <div className="flex justify-center items-center gap-x-2">
             <ChevronDownIcon className="AccordionChevron" aria-hidden />
             <div className='font-bold text-xl'>
