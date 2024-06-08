@@ -10,7 +10,7 @@ function App() {
     const [expandedItems, setExpandedItems] = useState<string[]>([]);
 
     useEffect(() => {
-        document.body.style.backgroundColor = darkMode ? "black" : "white";
+        document.body.style.backgroundColor = darkMode ? "#121212" : "white";
         document.body.style.color = darkMode ? "#e6e6e6" : "black";
     }, [darkMode]);    
 

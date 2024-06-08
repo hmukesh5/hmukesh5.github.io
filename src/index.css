@@ -75,5 +75,5 @@ body {
 }
 .SwitchThumb[data-state='checked'] {
     transform: translateX(19px);
-    background-color: black;
+    background-color: #121212;
 }
