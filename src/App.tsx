@@ -37,7 +37,7 @@ function App() {
             title: <>ChoreDash | <a href="https://hmukesh.itch.io/chore-dash" target="_blank" className="underline">homepage</a></>,
             content:<>
                         A short 2D game where you control a character who must rush to complete chores before their mom comes home.
-                        Built with Python with the {pygameLink} module.
+                        Built in Python with the {pygameLink} module.
                         <br/>
                         <span className="font-bold text-amber-600">Capsher x ACC Coding Challenge 2023 1st place winner</span>
                     </>
@@ -47,7 +47,7 @@ function App() {
             title: <>Jerma985 Discord Bot | <a href="https://github.com/prknezek/Jerma985Bot" target="_blank" className="underline">github repo</a></>,
             content:<>
                         A Discord bot based on the popular Twitch streamer Jerma985.
-                        Built with Python with the {nextcordLink} module.
+                        Built in Python with the {nextcordLink} module.
                         <br/>
                         <span className="font-bold text-amber-600">ACC Discord Bot Challenge 2022 1st place winner</span>
                     </>
