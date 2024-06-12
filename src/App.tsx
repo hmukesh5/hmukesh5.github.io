@@ -10,8 +10,8 @@ function App() {
     const [expandedItems, setExpandedItems] = useState<string[]>([]);
 
     useEffect(() => {
-        document.body.style.backgroundColor = darkMode ? "#121212" : "white";
-        document.body.style.color = darkMode ? "#e6e6e6" : "black";
+        document.body.style.backgroundColor = darkMode ? "rgb(23,23,23)" : "white";
+        document.body.style.color = darkMode ? "rgb(229,229,229)" : "rgb(23,23,23)";
     }, [darkMode]);    
 
     const reactLink = <a href="https://react.dev/" className="underline" target="_blank">React</a>;
@@ -97,7 +97,7 @@ function App() {
             <div className="max-w-fit">
                 <div className="flex align-middle mb-4 mt-6">
                     <h3 className="font-bold text-xl sm:text-2xl underline">projects</h3>
-                    <button onClick={expandAll} className={`ml-4 border-black border-2 rounded text-base px-2 ${darkMode ? 'border-slate-300' : 'border-black'}`}>
+                    <button onClick={expandAll} className={`ml-4 border-black border-2 rounded text-base px-2 ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>
                         {expandedItems.length === projects.length ? "collapse all" : "expand all"}
                     </button>
                 </div>
