@@ -65,6 +65,15 @@ function App() {
             content:<>
                         During CSCE 463 - Networks and Distributed Processing at TAMU, I created a suite of various network applications. While I cannot share the codebase due to academic policies, I am working on a way to allow remote execution on a server.
                         Built in C++ with Visual Studio.
+                        <br/><br/>
+                        DNS Lookup Input:
+                        <br/>
+                        <form action="http://localhost:8080" method="post" className="text-inherit">
+                            <input type="text" name="query" placeholder='DNSLookup.exe <lookup-string> <DNS-server>' className="mt-2 px-2 py-1 text-black bg-neutral-300 rounded w-" />
+                            <br/>
+                            <input type="submit" value="run" className="mt-2 px-2 border-2 border-black rounded" />
+                        </form>
+
                     </>
         }
     ];
