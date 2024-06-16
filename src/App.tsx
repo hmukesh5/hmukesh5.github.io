@@ -92,7 +92,7 @@ function App() {
             <div className="mb-4 text-base sm:text-lg">
                 <p>Hello! My name is Hemanth Mukesh, and I'm a computer science senior at Texas A&M University. 
                    Below is a collection of projects I've worked on both in and out of college.
-                   Feel free to contact me at <a className="underline" href="mailto:hmukesh@outlook.com">hmukesh@outlook.com</a>!
+                   Feel free to contact me at <a className={`underline ${darkmodeSwitcher}`} href="mailto:hmukesh@outlook.com">hmukesh@outlook.com</a>!
                 </p>
             </div>
 
