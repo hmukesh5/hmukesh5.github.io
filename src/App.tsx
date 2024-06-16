@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 function App() {
     const [darkMode, setDarkMode] = useState(false);
     const [expandedItems, setExpandedItems] = useState<string[]>([]);
+    const [dnsLookupResult, setDNSLookupResult] = useState<string>("");
 
     useEffect(() => {
         document.body.style.backgroundColor = darkMode ? "rgb(23,23,23)" : "white";
@@ -22,7 +23,31 @@ function App() {
     const pygameLink = <a href="https://www.pygame.org/wiki/about" className={`underline ${darkmodeSwitcher}`} target="_blank">pygame</a>;
     const nextcordLink = <a href="https://docs.nextcord.dev/en/stable/" className={`underline ${darkmodeSwitcher}`} target="_blank">nextcord</a>;
 
-    const dns_content = "d\nd\nd\nd";
+    const handleDNSLookupSubmit = async () => {
+        const dns_input = document.getElementById("dnslookuptext") as HTMLInputElement;
+        const dns_query = dns_input.value;
+        if (dns_query === "") {
+            alert("Please enter a domain/IP to lookup.");
+            return;
+        }
+        
+        console.log("running...");
+        console.log(JSON.stringify({query: dns_query}));
+
+        const response = await fetch('https://hmukesh5-github-io.onrender.com/run', {
+            
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({query: dns_query})
+        });
+
+        console.log(response);
+
+        const data = await response.json();
+        setDNSLookupResult(data.output);
+    };
 
     const projects = [
         {
@@ -70,15 +95,15 @@ function App() {
                         <br/><br/>
                         DNS Lookup Tool:
                         <br/>
-                        <form action="https://hmukesh5-github-io.onrender.com" method="post" className="text-inherit">
-                            <input type="text" name="query" placeholder='input domain/IP' className="mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64" />
-                            <input type="submit" value="run" className="mt-2 px-2 border-2 border-black rounded" />
-                        </form>
+                        <div>
+                            <input id="dnslookuptext" type="text" name="query" placeholder='input domain/IP' className="mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64" />
+                            <button onClick={handleDNSLookupSubmit} className="mt-2 px-2 border-2 border-black rounded">run</button>
+                        </div>
                         Output:
                         <br/>
-                        <textarea className="mt-2 px-2 border-2 border-neutral-500 rounded w-full h-72 text-sm h-" readOnly
+                        <textarea className="mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-72 text-sm h-" readOnly
                             placeholder='output will be appear here...'
-                            value={dns_content}
+                            value={dnsLookupResult}
                         >
                         </textarea>
 

@@ -4,6 +4,7 @@ const port = process.env.PORT || 5000;
 const { exec } = require('node:child_process');
 
 app.use(express.json())
+app.use(cors());
 
 app.get('/', (req, res) => {
     console.log('Hello World');
