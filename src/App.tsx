@@ -50,7 +50,7 @@ function App() {
         {
             value: "jerma",
             title: <>Jerma985 Discord Bot | </>,
-            link: <a href="https://github.com/prknezek/Jerma985Bot" target="_blank" className="underline">github</a>,
+            link: <a href="https://github.com/prknezek/Jerma985Bot" target="_blank" className={`underline ${darkmodeSwitcher}`}>github</a>,
             content:<>
                         A Discord bot based on the popular Twitch streamer Jerma985.
                         Built in Python with the {nextcordLink} module.
