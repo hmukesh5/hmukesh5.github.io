@@ -15,13 +15,13 @@ app.get('/', (req, res) => {
 app.post('/test', (req, res) => {
     console.log('testing...');
 
-    const command = `Homework2.exe ${req.body.query} 8.8.8.8`;
+    const command = `./Homework2.exe ${req.body.query} 8.8.8.8`;
 
     exec(command, (error, stdout, stderr) => {
         if (error) {
-            res.send(`<h2>Error:</h2><pre>${stderr}</pre>`);
+            res.send(`${stderr}`);
         } else {
-            res.send(`<h2>Output:</h2><pre>${stdout}</pre>`);
+            res.send(`${stdout}`);
         }
     });
 });
