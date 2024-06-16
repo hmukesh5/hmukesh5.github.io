@@ -14,11 +14,13 @@ function App() {
         document.body.style.color = darkMode ? "rgb(229,229,229)" : "rgb(23,23,23)";
     }, [darkMode]);    
 
-    const reactLink = <a href="https://react.dev/" className="underline" target="_blank">React</a>;
-    const tailwindCSSLink = <a href="https://tailwindcss.com/" className="underline" target="_blank">Tailwind CSS</a>;
-    const wordleLink = <a href="https://www.nytimes.com/games/wordle/index.html" className="underline" target="_blank">Wordle</a>;
-    const pygameLink = <a href="https://www.pygame.org/wiki/about" className="underline" target="_blank">pygame</a>;
-    const nextcordLink = <a href="https://docs.nextcord.dev/en/stable/" className="underline" target="_blank">nextcord</a>;
+    const darkmodeSwitcher = `${darkMode ? 'hover:bg-neutral-200 hover:text-black' : 'hover:bg-neutral-900 hover:text-neutral-100'}`;
+
+    const reactLink = <a href="https://react.dev/" className={`underline ${darkmodeSwitcher}`} target="_blank">React</a>;
+    const tailwindCSSLink = <a href="https://tailwindcss.com/" className={`underline ${darkmodeSwitcher}`} target="_blank">Tailwind CSS</a>;
+    const wordleLink = <a href="https://www.nytimes.com/games/wordle/index.html" className={`underline ${darkmodeSwitcher}`} target="_blank">Wordle</a>;
+    const pygameLink = <a href="https://www.pygame.org/wiki/about" className={`underline ${darkmodeSwitcher}`} target="_blank">pygame</a>;
+    const nextcordLink = <a href="https://docs.nextcord.dev/en/stable/" className={`underline ${darkmodeSwitcher}`} target="_blank">nextcord</a>;
 
     const projects = [
         {
@@ -31,13 +33,13 @@ function App() {
         {
             value: "wordle",
             title: <>wordle by hemanth | </>,
-            link: <a href="http://wordle-clone-5fbt.onrender.com/" target="_blank" className="underline">link</a>,
+            link: <a href="http://wordle-clone-5fbt.onrender.com/" target="_blank" className={`underline ${darkmodeSwitcher}`}>link</a>,
             content: <>A word puzzle as a web app inspired by the popular {wordleLink} game. Built with {reactLink}.</>
         },
         {
             value: "choredash",
             title: <>ChoreDash | </>,
-            link: <a href="https://hmukesh.itch.io/chore-dash" target="_blank" className="underline">homepage</a>,
+            link: <a href="https://hmukesh.itch.io/chore-dash" target="_blank" className={`underline ${darkmodeSwitcher}`}>homepage</a>,
             content:<>
                         A short 2D game where you control a character who must rush to complete chores before their mom comes home.
                         Built in Python with the {pygameLink} module.
