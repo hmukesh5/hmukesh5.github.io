@@ -9,6 +9,7 @@ function App() {
     const [darkMode, setDarkMode] = useState(false);
     const [expandedItems, setExpandedItems] = useState<string[]>([]);
     const [dnsLookupResult, setDNSLookupResult] = useState<string>("");
+    const [dnsLookupDisable, setDNSLookupDisable] = useState<boolean>(false);
 
     useEffect(() => {
         document.body.style.backgroundColor = darkMode ? "rgb(23,23,23)" : "white";
@@ -31,11 +32,11 @@ function App() {
             return;
         }
         
-        console.log("running...");
+        setDNSLookupResult("running... (this may take up to 60 seconds)");
+        setDNSLookupDisable(true);
         console.log(JSON.stringify({query: dns_query}));
 
-        const response = await fetch('https://hmukesh5-github-io.onrender.com/run', {
-            
+        const response = await fetch('https://hmukesh5-github-io.onrender.com/test', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -45,8 +46,10 @@ function App() {
 
         console.log(response);
 
-        const data = await response.json();
-        setDNSLookupResult(data.output);
+        const data = await response.text();
+        console.log(data)
+        setDNSLookupResult(data);
+        setDNSLookupDisable(false);
     };
 
     const projects = [
@@ -55,7 +58,7 @@ function App() {
             title: <>this website</>,
             link: <></>,
             content: <>The website you are currently viewing!
-                       Built with {reactLink} and {tailwindCSSLink}.</>
+                       Built with {reactLink}, Express, and {tailwindCSSLink}.</>
         },
         {
             value: "wordle",
@@ -90,14 +93,14 @@ function App() {
             title: <>C++ Network Applications</>,
             link: <></>,
             content:<>
-                        During CSCE 463 - Networks and Distributed Processing at TAMU, I created a suite of various network applications. While I cannot share the codebase due to academic policies, I am working on a way to allow remote execution on a server.
-                        Built in C++ with Visual Studio.
+                        During CSCE 463 - Networks and Distributed Processing at TAMU, I created a suite of various network applications. Demos are provided below.
+                        Built in C++, and hosted on Render with Express.
                         <br/><br/>
                         DNS Lookup Tool:
                         <br/>
                         <div>
                             <input id="dnslookuptext" type="text" name="query" placeholder='input domain/IP' className="mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64" />
-                            <button onClick={handleDNSLookupSubmit} className="mt-2 px-2 border-2 border-black rounded">run</button>
+                            <button disabled={dnsLookupDisable} onClick={handleDNSLookupSubmit} className="mt-2 px-2 border-2 border-black rounded">run</button>
                         </div>
                         Output:
                         <br/>

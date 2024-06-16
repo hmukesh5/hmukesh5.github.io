@@ -12,10 +12,10 @@ app.get('/', (req, res) => {
     res.send('Hello World');
 });
 
-app.get('/test', (req, res) => {
+app.post('/test', (req, res) => {
     console.log('testing...');
 
-    const command = 'Homework2.exe hmukesh.me  8.8.8.8';
+    const command = `Homework2.exe ${req.body.query} 8.8.8.8`;
 
     exec(command, (error, stdout, stderr) => {
         if (error) {
