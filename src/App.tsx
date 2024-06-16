@@ -22,6 +22,8 @@ function App() {
     const pygameLink = <a href="https://www.pygame.org/wiki/about" className={`underline ${darkmodeSwitcher}`} target="_blank">pygame</a>;
     const nextcordLink = <a href="https://docs.nextcord.dev/en/stable/" className={`underline ${darkmodeSwitcher}`} target="_blank">nextcord</a>;
 
+    const dns_content = "d\nd\nd\nd";
+
     const projects = [
         {
             value: "portfolio",
@@ -66,13 +68,19 @@ function App() {
                         During CSCE 463 - Networks and Distributed Processing at TAMU, I created a suite of various network applications. While I cannot share the codebase due to academic policies, I am working on a way to allow remote execution on a server.
                         Built in C++ with Visual Studio.
                         <br/><br/>
-                        DNS Lookup Input:
+                        DNS Lookup Tool:
                         <br/>
-                        <form action="http://localhost:8080" method="post" className="text-inherit">
-                            <input type="text" name="query" placeholder='DNSLookup.exe <lookup-string> <DNS-server>' className="mt-2 px-2 py-1 text-black bg-neutral-300 rounded w-" />
-                            <br/>
+                        <form action="https://hmukesh5-github-io.onrender.com" method="post" className="text-inherit">
+                            <input type="text" name="query" placeholder='input domain/IP' className="mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64" />
                             <input type="submit" value="run" className="mt-2 px-2 border-2 border-black rounded" />
                         </form>
+                        Output:
+                        <br/>
+                        <textarea className="mt-2 px-2 border-2 border-neutral-500 rounded w-full h-72 text-sm h-" readOnly
+                            placeholder='output will be appear here...'
+                            value={dns_content}
+                        >
+                        </textarea>
 
                     </>
         }
