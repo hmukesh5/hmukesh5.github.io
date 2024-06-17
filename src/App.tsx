@@ -26,6 +26,10 @@ function App() {
     const wordleLink = <a href="https://www.nytimes.com/games/wordle/index.html" className={`underline ${darkmodeSwitcher}`} target="_blank">Wordle</a>;
     const pygameLink = <a href="https://www.pygame.org/wiki/about" className={`underline ${darkmodeSwitcher}`} target="_blank">pygame</a>;
     const nextcordLink = <a href="https://docs.nextcord.dev/en/stable/" className={`underline ${darkmodeSwitcher}`} target="_blank">nextcord</a>;
+    const expressLink = <a href="https://expressjs.com/" className={`underline ${darkmodeSwitcher}`} target="_blank">Express</a>;
+    const githubLink = <a href="https://github.com/hmukesh5" className={`underline ${darkmodeSwitcher}`} target="_blank">Github</a>;
+    const linkedinLink = <a href="https://linkedin.com/in/hmukesh5" className={`underline ${darkmodeSwitcher}`} target="_blank">LinkedIn</a>;
+    const emailLink = <a href="mailto:hmukesh@outlook.com" className={`underline ${darkmodeSwitcher}`}>hmukesh@outlook.com</a>;
 
     const handleDNSLookupSubmit = async () => {
         try {
@@ -71,7 +75,7 @@ function App() {
             title: <>this website</>,
             link: <></>,
             content: <>The website you are currently viewing!
-                       Front-end built with {reactLink} and {tailwindCSSLink}. Back-end built with Express.</>
+                       Front-end built with {reactLink} and {tailwindCSSLink}. Back-end built with {expressLink}.</>
         },
         {
             value: "wordle",
@@ -107,7 +111,7 @@ function App() {
             link: <></>,
             content:<>
                         During my networks class at A&M (CSCE 463), I created a suite of various network applications. This section is still a WIP, but the DNS lookup program can be executed below.
-                        Built in C++, and hosted on a Windows machine connected with Express.
+                        Built in C++, and hosted on a Windows machine connected with {expressLink}.
                         <br/><br/>
                         DNS Lookup Tool:
                         <br/>
@@ -149,8 +153,8 @@ function App() {
 
             <div className="mb-4 text-base sm:text-lg">
                 <p>Hello! My name is Hemanth Mukesh, and I'm a computer science senior at Texas A&M University. 
-                   Below is a collection of projects I've worked on throughout college. All of the code is available on my Github.
-                   Feel free to contact me at <a className={`underline ${darkmodeSwitcher}`} href="mailto:hmukesh@outlook.com">hmukesh@outlook.com</a>!
+                   Below is a collection of projects I've worked on throughout college. All of the code is available on my {githubLink}.
+                   Feel free to contact me at {emailLink}!
                 </p>
             </div>
 
