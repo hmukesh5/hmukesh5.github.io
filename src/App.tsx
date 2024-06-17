@@ -153,8 +153,8 @@ function App() {
 
             <div className="mb-4 text-base sm:text-lg">
                 <p>Hello! My name is Hemanth Mukesh, and I'm a computer science senior at Texas A&M University. 
-                   Below is a collection of projects I've worked on throughout college. All of the code is available on my {githubLink}.
-                   Feel free to contact me at {emailLink}!
+                   Below is a collection of projects I've worked on throughout college.
+                   Feel free to contact me on {linkedinLink} or at {emailLink}!
                 </p>
             </div>
 
