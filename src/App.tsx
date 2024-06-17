@@ -11,10 +11,13 @@ function App() {
     const [dnsLookupResult, setDNSLookupResult] = useState<string>("");
     const [dnsLookupDisable, setDNSLookupDisable] = useState<boolean>(false);
 
+    const darkColor = 'neutral-900';
+    const lightColor = 'neutral-200';
+
     useEffect(() => {
         document.body.style.backgroundColor = darkMode ? "rgb(23,23,23)" : "white";
         document.body.style.color = darkMode ? "rgb(229,229,229)" : "rgb(23,23,23)";
-    }, [darkMode]);    
+    }, [darkMode]);  
 
     const darkmodeSwitcher = `${darkMode ? 'hover:bg-neutral-200 hover:text-black' : 'hover:bg-neutral-900 hover:text-neutral-100'}`;
 
@@ -25,31 +28,41 @@ function App() {
     const nextcordLink = <a href="https://docs.nextcord.dev/en/stable/" className={`underline ${darkmodeSwitcher}`} target="_blank">nextcord</a>;
 
     const handleDNSLookupSubmit = async () => {
-        const dns_input = document.getElementById("dnslookuptext") as HTMLInputElement;
-        const dns_query = dns_input.value;
-        if (dns_query === "") {
-            alert("Please enter a domain/IP to lookup.");
-            return;
-        }
+        try {
+            const dns_input = document.getElementById("dnslookuptext") as HTMLInputElement;
+            const dns_query = dns_input.value;
+            
+            setDNSLookupResult("running...");
+            setDNSLookupDisable(true);
+            console.log(JSON.stringify({query: dns_query}));
+            
+            const controller = new AbortController();
+            const signal = controller.signal;
+            const timeoutID = setTimeout(() => controller.abort(), 1000);
+
+            const response = await fetch('http://70.112.79.16:5000/test', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({query: dns_query}),
+                signal: signal
+            });
+
+            clearTimeout(timeoutID);
         
-        setDNSLookupResult("running... (this may take up to 60 seconds)");
-        setDNSLookupDisable(true);
-        console.log(JSON.stringify({query: dns_query}));
-
-        const response = await fetch('https://hmukesh5-github-io.onrender.com/test', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({query: dns_query})
-        });
-
-        console.log(response);
-
-        const data = await response.text();
-        console.log(data)
-        setDNSLookupResult(data);
-        setDNSLookupDisable(false);
+            const data = await response.text();
+            setDNSLookupResult(data);
+            setDNSLookupDisable(false);
+        } catch (error) {
+            console.error('Error:', error);
+            if (error.name === 'AbortError') {
+                setDNSLookupResult('request timed out, please try again.');
+            } else {
+                setDNSLookupResult('an error occurred, please try again.');
+            }
+            setDNSLookupDisable(false);
+        }
     };
 
     const projects = [
@@ -94,17 +107,17 @@ function App() {
             link: <></>,
             content:<>
                         During CSCE 463 - Networks and Distributed Processing at TAMU, I created a suite of various network applications. Demos are provided below.
-                        Built in C++, and hosted on Render with Express.
+                        Built in C++, and hosted with Express.
                         <br/><br/>
                         DNS Lookup Tool:
                         <br/>
                         <div>
-                            <input id="dnslookuptext" type="text" name="query" placeholder='input domain/IP' className="mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64" />
-                            <button disabled={dnsLookupDisable} onClick={handleDNSLookupSubmit} className="mt-2 px-2 border-2 border-black rounded">run</button>
+                            <input id="dnslookuptext" type="text" name="query" placeholder='input domain/IP' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 ${darkMode ? `bg-${darkColor}` : ''}`} />
+                            <button disabled={dnsLookupDisable} onClick={handleDNSLookupSubmit} className={`mt-2 px-2 border-2 border-black rounded ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
                         </div>
                         Output:
                         <br/>
-                        <textarea className="mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-72 text-sm h-" readOnly
+                        <textarea className={`mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? `bg-${darkColor}` : ''}`} readOnly
                             placeholder='output will be appear here...'
                             value={dnsLookupResult}
                         >
