@@ -1,27 +1,52 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const port = process.env.PORT || 5000;
 const { exec } = require('node:child_process');
 
 app.use(express.json())
+app.use(cors());
 
 app.get('/', (req, res) => {
     console.log('Hello World');
     res.send('Hello World');
 });
 
-app.get('/test', (req, res) => {
+app.post('/test', (req, res) => {
     console.log('testing...');
 
-    const command = 'Homework2.exe hmukesh.me  8.8.8.8';
+    if (!req.body.query) {
+        res.send('Invalid domain/IP');
+        console.log('tested');
+    }
+    else {
 
-    exec(command, (error, stdout, stderr) => {
-        if (error) {
-            res.send(`<h2>Error:</h2><pre>${stderr}</pre>`);
-        } else {
-            res.send(`<h2>Output:</h2><pre>${stdout}</pre>`);
+        // sanitize against space and ampersand
+        if (/\s|&/.test(req.body.query)) {
+            res.send('Invalid domain/IP. Please do not use spaces or special characters.');
+            return;
         }
-    });
+
+        const command = `DNSLookup.exe ${req.body.query} 8.8.8.8`;
+        console.log(command);
+        child = exec(command, (error, stdout, stderr) => {
+            if (error != null) {
+                console.log("error caught");
+                if (stderr == '') {
+                    res.send(`${stdout}`);    
+                } else {
+                    res.send(`Internal Server Error`);
+                }
+            } else {
+                console.log("no error")
+                res.send(`${stdout}`);
+            }
+        });
+
+        console.log('tested');
+    }
+
+    
 });
 
 app.post('/run', (req, res) => {

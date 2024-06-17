@@ -8,11 +8,16 @@ import { useState, useEffect } from 'react';
 function App() {
     const [darkMode, setDarkMode] = useState(false);
     const [expandedItems, setExpandedItems] = useState<string[]>([]);
+    const [dnsLookupResult, setDNSLookupResult] = useState<string>("");
+    const [dnsLookupDisable, setDNSLookupDisable] = useState<boolean>(false);
+
+    const darkColor = 'neutral-900';
+    const lightColor = 'neutral-200';
 
     useEffect(() => {
         document.body.style.backgroundColor = darkMode ? "rgb(23,23,23)" : "white";
         document.body.style.color = darkMode ? "rgb(229,229,229)" : "rgb(23,23,23)";
-    }, [darkMode]);    
+    }, [darkMode]);  
 
     const darkmodeSwitcher = `${darkMode ? 'hover:bg-neutral-200 hover:text-black' : 'hover:bg-neutral-900 hover:text-neutral-100'}`;
 
@@ -22,13 +27,51 @@ function App() {
     const pygameLink = <a href="https://www.pygame.org/wiki/about" className={`underline ${darkmodeSwitcher}`} target="_blank">pygame</a>;
     const nextcordLink = <a href="https://docs.nextcord.dev/en/stable/" className={`underline ${darkmodeSwitcher}`} target="_blank">nextcord</a>;
 
+    const handleDNSLookupSubmit = async () => {
+        try {
+            const dns_input = document.getElementById("dnslookuptext") as HTMLInputElement;
+            const dns_query = dns_input.value;
+            
+            setDNSLookupResult("running...");
+            setDNSLookupDisable(true);
+            console.log(JSON.stringify({query: dns_query}));
+            
+            const controller = new AbortController();
+            const signal = controller.signal;
+            const timeoutID = setTimeout(() => controller.abort(), 1000);
+
+            const response = await fetch(`${import.meta.env.VITE_SERVER_IP}:5000/test`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({query: dns_query}),
+                signal: signal
+            });
+
+            clearTimeout(timeoutID);
+        
+            const data = await response.text();
+            setDNSLookupResult(data);
+            setDNSLookupDisable(false);
+        } catch (error) {
+            console.error('Error:', error);
+            if (error.name === 'AbortError') {
+                setDNSLookupResult('request timed out, please try again.');
+            } else {
+                setDNSLookupResult('an error occurred, please try again.');
+            }
+            setDNSLookupDisable(false);
+        }
+    };
+
     const projects = [
         {
             value: "portfolio",
             title: <>this website</>,
             link: <></>,
             content: <>The website you are currently viewing!
-                       Built with {reactLink} and {tailwindCSSLink}.</>
+                       Built with {reactLink}, Express, and {tailwindCSSLink}.</>
         },
         {
             value: "wordle",
@@ -63,8 +106,23 @@ function App() {
             title: <>C++ Network Applications</>,
             link: <></>,
             content:<>
-                        During CSCE 463 - Networks and Distributed Processing at TAMU, I created a suite of various network applications. While I cannot share the codebase due to academic policies, I am working on a way to allow remote execution on a server.
-                        Built in C++ with Visual Studio.
+                        During CSCE 463 - Networks and Distributed Processing at TAMU, I created a suite of various network applications. Demos are provided below.
+                        Built in C++, and hosted with Express.
+                        <br/><br/>
+                        DNS Lookup Tool:
+                        <br/>
+                        <div>
+                            <input id="dnslookuptext" type="text" name="query" placeholder='input domain/IP' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 ${darkMode ? `bg-${darkColor}` : ''}`} />
+                            <button disabled={dnsLookupDisable} onClick={handleDNSLookupSubmit} className={`mt-2 px-2 border-2 border-black rounded ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
+                        </div>
+                        Output:
+                        <br/>
+                        <textarea className={`mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? `bg-${darkColor}` : ''}`} readOnly
+                            placeholder='output will be appear here...'
+                            value={dnsLookupResult}
+                        >
+                        </textarea>
+
                     </>
         }
     ];

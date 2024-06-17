@@ -20,6 +20,15 @@ body {
     font-family: 'spacemono', sans-serif;
 }
 
+input:focus, textarea:focus {
+    outline:none;    
+}
+
+textarea {
+    resize: none;
+}
+
+
 .AccordionChevron {
     transform: rotate(270deg);
     transition: transform 300ms;
