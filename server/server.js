@@ -15,15 +15,38 @@ app.get('/', (req, res) => {
 app.post('/test', (req, res) => {
     console.log('testing...');
 
-    const command = `./Homework2.exe ${req.body.query} 8.8.8.8`;
+    if (!req.body.query) {
+        res.send('Invalid domain/IP');
+        console.log('tested');
+    }
+    else {
 
-    exec(command, (error, stdout, stderr) => {
-        if (error) {
-            res.send(`${stderr}`);
-        } else {
-            res.send(`${stdout}`);
+        // sanitize against space and ampersand
+        if (/\s|&/.test(req.body.query)) {
+            res.send('Invalid domain/IP. Please do not use spaces or special characters.');
+            return;
         }
-    });
+
+        const command = `DNSLookup.exe ${req.body.query} 8.8.8.8`;
+        console.log(command);
+        child = exec(command, (error, stdout, stderr) => {
+            if (error != null) {
+                console.log("error caught");
+                if (stderr == '') {
+                    res.send(`${stdout}`);    
+                } else {
+                    res.send(`Internal Server Error`);
+                }
+            } else {
+                console.log("no error")
+                res.send(`${stdout}`);
+            }
+        });
+
+        console.log('tested');
+    }
+
+    
 });
 
 app.post('/run', (req, res) => {
