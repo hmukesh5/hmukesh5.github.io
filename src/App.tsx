@@ -38,7 +38,7 @@ function App() {
             
             const controller = new AbortController();
             const signal = controller.signal;
-            const timeoutID = setTimeout(() => controller.abort(), 1000);
+            const timeoutID = setTimeout(() => controller.abort(), 5000);
 
             const response = await fetch('https://server.hmukesh.me/test', {
                 method: 'POST',
