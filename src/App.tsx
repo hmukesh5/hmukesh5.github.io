@@ -71,53 +71,53 @@ function App() {
             title: <>this website</>,
             link: <></>,
             content: <>The website you are currently viewing!
-                       Built with {reactLink}, Express, and {tailwindCSSLink}.</>
+                       Front-end built with {reactLink} and {tailwindCSSLink}. Back-end built with Express.</>
         },
         {
             value: "wordle",
             title: <>wordle by hemanth | </>,
             link: <a href="http://wordle-clone-5fbt.onrender.com/" target="_blank" className={`underline ${darkmodeSwitcher}`}>link</a>,
-            content: <>A word puzzle as a web app inspired by the popular {wordleLink} game. Built with {reactLink}.</>
+            content: <>A word puzzle as a web app inspired by the popular {wordleLink} game. Built with {reactLink} and various YouTube videos.</>
         },
         {
             value: "choredash",
             title: <>ChoreDash | </>,
             link: <a href="https://hmukesh.itch.io/chore-dash" target="_blank" className={`underline ${darkmodeSwitcher}`}>homepage</a>,
             content:<>
-                        A short 2D game where you control a character who must rush to complete chores before their mom comes home.
-                        Built in Python with the {pygameLink} module.
+                        A short, replayable 2D game where you control a character who must rush to complete chores before their mom comes home.
+                        Built in Python with the {pygameLink} module, with Payton Knezek and Adnan Yusuf. Available for download on itch.io using the link above.
                         <br/>
                         <span className="font-bold text-amber-600">Capsher x ACC Coding Challenge 2023 1st place winner</span>
                     </>
         },
         {
             value: "jerma",
-            title: <>Jerma985 Discord Bot | </>,
+            title: <>Jerma985 discord bot | </>,
             link: <a href="https://github.com/prknezek/Jerma985Bot" target="_blank" className={`underline ${darkmodeSwitcher}`}>github</a>,
             content:<>
                         A Discord bot based on the popular Twitch streamer Jerma985.
-                        Built in Python with the {nextcordLink} module.
+                        Built in Python with the {nextcordLink} module, with Payton Knezek.
                         <br/>
                         <span className="font-bold text-amber-600">ACC Discord Bot Challenge 2022 1st place winner</span>
                     </>
         },
         {
             value: "network",
-            title: <>C++ Network Applications</>,
+            title: <>C++ network applications</>,
             link: <></>,
             content:<>
-                        During CSCE 463 - Networks and Distributed Processing at TAMU, I created a suite of various network applications. Demos are provided below.
-                        Built in C++, and hosted with Express.
+                        During my networks class at A&M (CSCE 463), I created a suite of various network applications. This section is still a WIP, but the DNS lookup program can be executed below.
+                        Built in C++, and hosted on a Windows machine connected with Express.
                         <br/><br/>
                         DNS Lookup Tool:
                         <br/>
                         <div>
-                            <input id="dnslookuptext" type="text" name="query" placeholder='input domain/IP' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 ${darkMode ? `bg-${darkColor}` : ''}`} />
-                            <button disabled={dnsLookupDisable} onClick={handleDNSLookupSubmit} className={`mt-2 px-2 border-2 border-black rounded ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
+                            <input id="dnslookuptext" type="text" name="query" placeholder='input domain/IP' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                            <button disabled={dnsLookupDisable} onClick={handleDNSLookupSubmit} className={`mt-2 px-2 border-2 border-black rounded sm:text-sm text-xs ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
                         </div>
                         Output:
                         <br/>
-                        <textarea className={`mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? `bg-${darkColor}` : ''}`} readOnly
+                        <textarea className={`mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
                             placeholder='output will be appear here...'
                             value={dnsLookupResult}
                         >
@@ -136,7 +136,7 @@ function App() {
     }
 
     return (
-        <div className="min-h-screen max-w-4xl mx-auto py-6 sm:py-8 px-4 sm:px-6">
+        <div className="min-h-screen max-w-5xl mx-auto py-6 sm:py-8 px-4 sm:px-6">
 
             <div className="mb-4">
                 <p className="text-center font-bold text-4xl sm:text-5xl">Hemanth Mukesh</p>                
@@ -149,7 +149,7 @@ function App() {
 
             <div className="mb-4 text-base sm:text-lg">
                 <p>Hello! My name is Hemanth Mukesh, and I'm a computer science senior at Texas A&M University. 
-                   Below is a collection of projects I've worked on both in and out of college.
+                   Below is a collection of projects I've worked on throughout college. All of the code is available on my Github.
                    Feel free to contact me at <a className={`underline ${darkmodeSwitcher}`} href="mailto:hmukesh@outlook.com">hmukesh@outlook.com</a>!
                 </p>
             </div>
