@@ -1,3 +1,10 @@
+const fs = require('fs');
+const https = require('https');
+const options = {
+    key: fs.readFileSync('certs/privkey.pem'),
+    cert: fs.readFileSync('certs/fullchain.pem')
+}
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -65,4 +72,6 @@ app.post('/run', (req, res) => {
     // });
 });
 
-app.listen(port, () => {console.log(`server started on port ${port}`)})
+https.createServer(options, app).listen(443, () => {
+    console.log('HTTPS Server running on port 443');
+});
