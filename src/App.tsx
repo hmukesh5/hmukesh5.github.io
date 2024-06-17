@@ -40,7 +40,7 @@ function App() {
             const signal = controller.signal;
             const timeoutID = setTimeout(() => controller.abort(), 1000);
 
-            const response = await fetch(`${import.meta.env.VITE_SERVER_IP}:5000/test`, {
+            const response = await fetch('http://70.112.79.16:5000/test', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
