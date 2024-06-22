@@ -37,6 +37,7 @@ function App() {
     const githubPagesLink = <a href="https://pages.github.com/" className={`underline ${darkmodeSwitcher}`} target="_blank">Github Pages</a>;
     const letsencryptLink = <a href="https://letsencrypt.org/" className={`underline ${darkmodeSwitcher}`} target="_blank">Let's Encrypt</a>;
     const googleDNSLink = <a href="https://developers.google.com/speed/public-dns" className={`underline ${darkmodeSwitcher}`} target="_blank">Google's DNS Servers</a>;
+    const choredashLink = <a href="https://hmukesh.itch.io/chore-dash" className={`underline ${darkmodeSwitcher}`} target="_blank">itch.io</a>;
 
     const handleDNSLookupSubmit = async () => {
         try {
@@ -92,7 +93,7 @@ function App() {
                         <span className="font-bold text-amber-600">🏆 Capsher x Aggie Coding Club Coding Challenge 2023 1st place winner</span>
                         <br/>
                         A short, replayable 2D game where you control a character who must rush to complete chores before their mom comes home.
-                        Built in Python with the {pygameLink} module, with Payton Knezek and Adnan Yusuf. Available for download on itch.io using the link above.
+                        Built in Python with the {pygameLink} module, with Payton Knezek and Adnan Yusuf. Available for download on {choredashLink}.
                     </>
         },
         {
