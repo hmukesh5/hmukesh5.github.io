@@ -78,20 +78,14 @@ function App() {
                        Front-end built with {reactLink} and {tailwindCSSLink}. Back-end built with {expressLink}.</>
         },
         {
-            value: "wordle",
-            title: <>wordle by hemanth | </>,
-            link: <a href="http://wordle-clone-5fbt.onrender.com/" target="_blank" className={`underline ${darkmodeSwitcher}`}>link</a>,
-            content: <>A word puzzle as a web app inspired by the popular {wordleLink} game. Built with {reactLink} and various YouTube videos.</>
-        },
-        {
             value: "choredash",
             title: <>ChoreDash | </>,
             link: <a href="https://hmukesh.itch.io/chore-dash" target="_blank" className={`underline ${darkmodeSwitcher}`}>homepage</a>,
             content:<>
+                        <span className="font-bold text-amber-600">🏆 Capsher x ACC Coding Challenge 2023 1st place winner</span>
+                        <br/>
                         A short, replayable 2D game where you control a character who must rush to complete chores before their mom comes home.
                         Built in Python with the {pygameLink} module, with Payton Knezek and Adnan Yusuf. Available for download on itch.io using the link above.
-                        <br/>
-                        <span className="font-bold text-amber-600">Capsher x ACC Coding Challenge 2023 1st place winner</span>
                     </>
         },
         {
@@ -99,10 +93,10 @@ function App() {
             title: <>Jerma985 discord bot | </>,
             link: <a href="https://github.com/prknezek/Jerma985Bot" target="_blank" className={`underline ${darkmodeSwitcher}`}>github</a>,
             content:<>
+                        <span className="font-bold text-amber-600">🏆 ACC Discord Bot Challenge 2022 1st place winner</span>    
+                        <br/>
                         A Discord bot based on the popular Twitch streamer Jerma985.
                         Built in Python with the {nextcordLink} module, with Payton Knezek.
-                        <br/>
-                        <span className="font-bold text-amber-600">ACC Discord Bot Challenge 2022 1st place winner</span>
                     </>
         },
         {
@@ -110,13 +104,20 @@ function App() {
             title: <>C++ network applications</>,
             link: <></>,
             content:<>
-                        During my networks class at A&M (CSCE 463), I created a suite of various network applications. This section is still a WIP, but the DNS lookup program can be executed below.
-                        Built in C++, and hosted on a Windows machine connected with {expressLink}.
+                        During my networks class at A&M (CSCE 463), I created a suite of various network applications. This section is still a WIP, and will update as I work on it.
+                        Built in C++, and hosted on an {expressLink} server on a Windows machine.
                         <br/><br/>
-                        DNS Lookup Tool:
+                        <span className="underline">DNS Lookup Tool:</span>
                         <br/>
+                        <p className="mb-3">
+                            DNS stands for Domain Name Service.
+                            It allows browsers and applications to map words like "google.com" to an IP address of a machine that it can find and connect to.
+                            Below, you can input a domain and make a request to see the IP addresses associated with that domain.
+                            Try typing in "google.com" or this website, "hmukesh.me".
+                        </p>
+                        Input:
                         <div>
-                            <input id="dnslookuptext" type="text" name="query" placeholder='input domain/IP' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                            <input id="dnslookuptext" type="text" name="query" placeholder='domain/IP (ex "google.com")' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
                             <button disabled={dnsLookupDisable} onClick={handleDNSLookupSubmit} className={`mt-2 px-2 border-2 border-black rounded sm:text-sm text-xs ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
                         </div>
                         Output:
@@ -128,7 +129,13 @@ function App() {
                         </textarea>
 
                     </>
-        }
+        },
+        {
+            value: "wordle",
+            title: <>wordle by hemanth | </>,
+            link: <a href="http://wordle-clone-5fbt.onrender.com/" target="_blank" className={`underline ${darkmodeSwitcher}`}>link</a>,
+            content: <>A word puzzle as a web app inspired by the popular {wordleLink} game. Built with {reactLink} and various YouTube videos.</>
+        },
     ];
 
     function expandAll() {
@@ -153,7 +160,7 @@ function App() {
 
             <div className="mb-4 text-base sm:text-lg">
                 <p>Hello! My name is Hemanth Mukesh, and I'm a computer science senior at Texas A&M University. 
-                   Below is a collection of projects I've worked on throughout college.
+                   This website serves to showcase my work throughout college.
                    Feel free to contact me on {linkedinLink} or at {emailLink}!
                 </p>
             </div>
@@ -162,7 +169,8 @@ function App() {
                 <div className="flex align-middle mb-4 mt-6">
                     <h3 className="font-bold text-xl sm:text-2xl underline">projects</h3>
                     <button onClick={expandAll} className={`ml-4 border-black border-2 rounded text-base px-2 ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>
-                        {expandedItems.length === projects.length ? "collapse all" : "expand all"}
+                        {expandedItems.length === projects.length ? "collapse all" : 
+                         expandedItems.length == 0 ? "expand all" : "expand rest"}
                     </button>
                 </div>
                 
