@@ -36,15 +36,15 @@ function App() {
             const dns_input = document.getElementById("dnslookuptext") as HTMLInputElement;
             const dns_query = dns_input.value;
             
-            setDNSLookupResult("running...");
+            setDNSLookupResult("running... (might take up to 10 sec)");
             setDNSLookupDisable(true);
             console.log(JSON.stringify({query: dns_query}));
             
             const controller = new AbortController();
             const signal = controller.signal;
-            const timeoutID = setTimeout(() => controller.abort(), 5000);
+            const timeoutID = setTimeout(() => controller.abort(), 10000);
 
-            const response = await fetch('https://server.hmukesh.me/test', {
+            const response = await fetch('https://cloudwindows.hmukesh.me/test', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
