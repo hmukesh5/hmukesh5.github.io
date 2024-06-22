@@ -114,7 +114,7 @@ function App() {
             link: <></>,
             content:<>
                         During my networks class at A&M (CSCE 463), I created a suite of various network applications. This section is still a WIP, and will update as I work on it.
-                        Built in C++, and hosted on an {awsec2Link} instance running an {expressLink} {servercodeLink}. HTTPS certification from {letsencryptLink}.
+                        Built in C++, and hosted on an {awsec2Link} Windows instance running an {expressLink} {servercodeLink}. HTTPS certifications from {letsencryptLink}.
                         <br/>
                         <div className="mt-4" />
                         <span className="font-heading font-bold">DNS Lookup Tool:</span>
