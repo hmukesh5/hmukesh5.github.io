@@ -21,15 +21,22 @@ function App() {
 
     const darkmodeSwitcher = `${darkMode ? 'hover:bg-neutral-200 hover:text-black' : 'hover:bg-neutral-900 hover:text-neutral-100'}`;
 
-    const reactLink = <a href="https://react.dev/" className={`underline ${darkmodeSwitcher}`} target="_blank">React</a>;
+    const reactLink = <a href="https://react.dev/" className={`underline ${darkmodeSwitcher}`} target="_blank">React.js</a>;
     const tailwindCSSLink = <a href="https://tailwindcss.com/" className={`underline ${darkmodeSwitcher}`} target="_blank">Tailwind CSS</a>;
     const wordleLink = <a href="https://www.nytimes.com/games/wordle/index.html" className={`underline ${darkmodeSwitcher}`} target="_blank">Wordle</a>;
     const pygameLink = <a href="https://www.pygame.org/wiki/about" className={`underline ${darkmodeSwitcher}`} target="_blank">pygame</a>;
     const nextcordLink = <a href="https://docs.nextcord.dev/en/stable/" className={`underline ${darkmodeSwitcher}`} target="_blank">nextcord</a>;
-    const expressLink = <a href="https://expressjs.com/" className={`underline ${darkmodeSwitcher}`} target="_blank">Express</a>;
+    const expressLink = <a href="https://expressjs.com/" className={`underline ${darkmodeSwitcher}`} target="_blank">Express.js</a>;
     const githubLink = <a href="https://github.com/hmukesh5" className={`underline ${darkmodeSwitcher}`} target="_blank">Github</a>;
     const linkedinLink = <a href="https://linkedin.com/in/hmukesh5" className={`underline ${darkmodeSwitcher}`} target="_blank">LinkedIn</a>;
     const emailLink = <a href="mailto:hmukesh@outlook.com" className={`underline ${darkmodeSwitcher}`}>hmukesh@outlook.com</a>;
+    const awsec2Link = <a href="https://aws.amazon.com/ec2/" className={`underline ${darkmodeSwitcher}`} target="_blank">AWS EC2</a>;
+    const servercodeLink = <a href="https://github.com/hmukesh5/hmukesh5.github.io/tree/main/server" className={`underline ${darkmodeSwitcher}`} target="_blank">server</a>;
+    const namecheapLink = <a href="https://www.namecheap.com/" className={`underline ${darkmodeSwitcher}`} target="_blank">namecheap</a>;
+    const githubStudentLink = <a href="https://education.github.com/pack/offers" className={`underline ${darkmodeSwitcher}`} target="_blank">Github Student Developer Pack</a>;
+    const githubPagesLink = <a href="https://pages.github.com/" className={`underline ${darkmodeSwitcher}`} target="_blank">Github Pages</a>;
+    const letsencryptLink = <a href="https://letsencrypt.org/" className={`underline ${darkmodeSwitcher}`} target="_blank">Let's Encrypt</a>;
+    const googleDNSLink = <a href="https://developers.google.com/speed/public-dns" className={`underline ${darkmodeSwitcher}`} target="_blank">Google's DNS Servers</a>;
 
     const handleDNSLookupSubmit = async () => {
         try {
@@ -75,14 +82,14 @@ function App() {
             title: <>this website</>,
             link: <></>,
             content: <>The website you are currently viewing!
-                       Front-end built with {reactLink} and {tailwindCSSLink}. Back-end built with {expressLink}.</>
+                       Front-end built with {reactLink} and {tailwindCSSLink}, hosted on {githubPagesLink}. Back-end built with {expressLink}, hosted on an {awsec2Link} instance. Domain from {namecheapLink} through the {githubStudentLink}.</>
         },
         {
             value: "choredash",
             title: <>ChoreDash | </>,
             link: <a href="https://hmukesh.itch.io/chore-dash" target="_blank" className={`underline ${darkmodeSwitcher}`}>homepage</a>,
             content:<>
-                        <span className="font-bold text-amber-600">🏆 Capsher x ACC Coding Challenge 2023 1st place winner</span>
+                        <span className="font-bold text-amber-600">🏆 Capsher x Aggie Coding Club Coding Challenge 2023 1st place winner</span>
                         <br/>
                         A short, replayable 2D game where you control a character who must rush to complete chores before their mom comes home.
                         Built in Python with the {pygameLink} module, with Payton Knezek and Adnan Yusuf. Available for download on itch.io using the link above.
@@ -93,7 +100,7 @@ function App() {
             title: <>Jerma985 discord bot | </>,
             link: <a href="https://github.com/prknezek/Jerma985Bot" target="_blank" className={`underline ${darkmodeSwitcher}`}>github</a>,
             content:<>
-                        <span className="font-bold text-amber-600">🏆 ACC Discord Bot Challenge 2022 1st place winner</span>    
+                        <span className="font-bold text-amber-600">🏆 Aggie Coding Club Discord Bot Challenge 2022 1st place winner</span>    
                         <br/>
                         A Discord bot based on the popular Twitch streamer Jerma985.
                         Built in Python with the {nextcordLink} module, with Payton Knezek.
@@ -105,15 +112,16 @@ function App() {
             link: <></>,
             content:<>
                         During my networks class at A&M (CSCE 463), I created a suite of various network applications. This section is still a WIP, and will update as I work on it.
-                        Built in C++, and hosted on an {expressLink} server on a Windows machine.
-                        <br/><br/>
+                        Built in C++, and hosted on an {awsec2Link} instance running an {expressLink} {servercodeLink}. HTTPS certification from {letsencryptLink}.
+                        <br/>
+                        <div className="h-2" />
                         <span className="underline">DNS Lookup Tool:</span>
                         <br/>
                         <p className="mb-3">
                             DNS stands for Domain Name Service.
-                            It allows browsers and applications to map words like "google.com" to an IP address of a machine that it can find and connect to.
-                            Below, you can input a domain and make a request to see the IP addresses associated with that domain.
-                            Try typing in "google.com" or this website, "hmukesh.me".
+                            It allows applications to lookup the IP addresses of domains like "youtube.com" so that it can connect to YouTube's servers.
+                            Below, you can lookup those IP addresses yourself on {googleDNSLink}.
+                            Try typing in "google.com", or this website, "hmukesh.me".
                         </p>
                         Input:
                         <div>

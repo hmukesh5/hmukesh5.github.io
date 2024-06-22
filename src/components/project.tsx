@@ -29,7 +29,7 @@ const Project: React.FC<ProjectProps> = ({value, project_title, project_link, co
         </Accordion.Header>
         <Accordion.Content className="AccordionContent ml-6 text-base sm:text-lg">
         {content}
-        <div className="text-xs h-1" />
+        <div className="text-xs h-6" />
         </Accordion.Content>
     </Accordion.Item>
 );
