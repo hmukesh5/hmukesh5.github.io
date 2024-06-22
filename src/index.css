@@ -6,6 +6,10 @@
     font-family: "spacemono";
     src: url('data/spacemono/SpaceMono-Regular.ttf') format('truetype');
 }
+@font-face {
+    font-family: "spacesans";
+    src: url('data/spacegrotesk/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+}
 
 html {
     overflow-y: scroll;

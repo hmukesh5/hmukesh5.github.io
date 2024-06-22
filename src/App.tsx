@@ -115,27 +115,29 @@ function App() {
                         During my networks class at A&M (CSCE 463), I created a suite of various network applications. This section is still a WIP, and will update as I work on it.
                         Built in C++, and hosted on an {awsec2Link} instance running an {expressLink} {servercodeLink}. HTTPS certification from {letsencryptLink}.
                         <br/>
-                        <div className="h-2" />
-                        <span className="underline">DNS Lookup Tool:</span>
+                        <div className="mt-4" />
+                        <span className="font-heading font-bold">DNS Lookup Tool:</span>
                         <br/>
-                        <p className="mb-3">
+                        <p className="mb-2">
                             DNS stands for Domain Name Service.
                             It allows applications to lookup the IP addresses of domains like "youtube.com" so that it can connect to YouTube's servers.
                             Below, you can lookup those IP addresses yourself on {googleDNSLink}.
                             Try typing in "google.com", or this website, "hmukesh.me".
                         </p>
-                        Input:
-                        <div>
-                            <input id="dnslookuptext" type="text" name="query" placeholder='domain/IP (ex "google.com")' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
-                            <button disabled={dnsLookupDisable} onClick={handleDNSLookupSubmit} className={`mt-2 px-2 border-2 border-black rounded sm:text-sm text-xs ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
+                        <div className="font-heading">
+                            <span className='font-body'>Input:</span>
+                            <div>
+                                <input id="dnslookuptext" type="text" name="query" placeholder='domain/IP (ex "google.com")' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                                <button disabled={dnsLookupDisable} onClick={handleDNSLookupSubmit} className={`mt-2 px-2 border-2 border-black rounded sm:text-sm text-xs ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
+                            </div>
+                            <span className='font-body'>Output:</span>
+                            <br/>
+                            <textarea className={`mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
+                                placeholder='output will appear here...'
+                                value={dnsLookupResult}
+                            >
+                            </textarea>
                         </div>
-                        Output:
-                        <br/>
-                        <textarea className={`mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
-                            placeholder='output will be appear here...'
-                            value={dnsLookupResult}
-                        >
-                        </textarea>
 
                     </>
         },
@@ -167,7 +169,7 @@ function App() {
                 <a className={darkMode ? "invert" : ""} href="https://github.com/hmukesh5" target="_blank"><img src={github} width={30} height={30}></img></a>
             </div>
 
-            <div className="mb-4 text-base sm:text-lg">
+            <div className="mb-4 text-base sm:text-xl font-body">
                 <p>Hello! My name is Hemanth Mukesh, and I'm a computer science senior at Texas A&M University. 
                    This website serves to showcase my work throughout college.
                    Feel free to contact me on {linkedinLink} or at {emailLink}!

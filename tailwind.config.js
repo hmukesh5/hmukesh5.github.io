@@ -2,6 +2,10 @@
 export default {
     content: ["./src/**/*.{js,jsx,ts,tsx}"],
     theme: {
+        fontFamily: {
+            'body': ['spacesans'],
+            'heading': ['spacemono']
+        },
         extend: {
             keyframes: {
                 slideDown: {
