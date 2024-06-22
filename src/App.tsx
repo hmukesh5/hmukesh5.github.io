@@ -134,7 +134,7 @@ function App() {
             value: "wordle",
             title: <>wordle by hemanth | </>,
             link: <a href="http://wordle-clone-5fbt.onrender.com/" target="_blank" className={`underline ${darkmodeSwitcher}`}>link</a>,
-            content: <>A word puzzle as a web app inspired by the popular {wordleLink} game. Built with {reactLink} and various YouTube videos.</>
+            content: <>A word puzzle as a web app inspired by the popular {wordleLink} game. Built with {reactLink} and the help of various YouTube videos.</>
         },
     ];
 

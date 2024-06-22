@@ -11,7 +11,7 @@ type ProjectProps = {
   };
 
 const Project: React.FC<ProjectProps> = ({value, project_title, project_link, content, expandedItems, setExpandedItems}) => (    
-    <Accordion.Item value={value}>
+    <Accordion.Item value={value} className="">
         <Accordion.Header>
         <Accordion.Trigger className="AccordionTrigger">
             <div className="flex justify-center items-center gap-x-2">
@@ -29,6 +29,7 @@ const Project: React.FC<ProjectProps> = ({value, project_title, project_link, co
         </Accordion.Header>
         <Accordion.Content className="AccordionContent ml-6 text-base sm:text-lg">
         {content}
+        <div className="text-xs h-1" />
         </Accordion.Content>
     </Accordion.Item>
 );
