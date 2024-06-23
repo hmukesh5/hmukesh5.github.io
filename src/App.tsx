@@ -208,10 +208,10 @@ function App() {
                 </div>
                 <div className="text-sm sm:text-base font-body">
                     <p>
-                        You'll notice that the project descriptions are filled with links. They're meant to be clicked!
-                        That's because I don't want to leave those new to coding in the dark, wondering "how did he even do that?".
-                        These links all point to the specific resources that I've used to build my projects, all for FREE.
-                        Most of these projects can be found on my {githubLink}, but looking at raw code can be intimidating, so
+                        You'll notice that this website is filled with external links.
+                        That's because I don't want to leave you wondering "how did he even make that?".
+                        These links point to the resources that I've used to build my projects, all for FREE.
+                        Most of these projects can be found on my {githubLink}, but 
                         I encourage you to explore the links here first. 
                         Hopefully, you'll learn something new about the world of software development! :)
                     </p>
