@@ -40,7 +40,10 @@ textarea {
     resize: none;
 }
 
-
+.bordercontent {
+    margin-left: 0.415rem;
+    padding-left: 1.075rem;
+}
 .AccordionChevron {
     transform: rotate(270deg);
     transition: transform 300ms;
@@ -50,6 +53,7 @@ textarea {
 }
 .AccordionContent {
     overflow: hidden;
+    
 }
 .AccordionContent[data-state='open'] {
     animation: slideDown 300ms ease-out;

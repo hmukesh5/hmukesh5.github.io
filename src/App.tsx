@@ -162,10 +162,10 @@ function App() {
         <div className="min-h-screen max-w-5xl mx-auto py-6 sm:py-8 px-4 sm:px-6">
 
             <div className="mb-4">
-                <p className="text-center font-bold text-4xl sm:text-5xl font-heading">Hemanth Mukesh</p>                
+                <p className="font-bold text-4xl sm:text-5xl font-heading">Hemanth Mukesh</p>                
             </div>
 
-            <div className="mt-5 mb-5 flex justify-evenly m-auto w-40">
+            <div className="mt-5 mb-5 flex justify-between w-20">
                 <a className={darkMode ? "invert" : ""} href="https://linkedin.com/in/hmukesh5" target="_blank"><img src={linkedin} width={30} height={30}></img></a>
                 <a className={darkMode ? "invert" : ""} href="https://github.com/hmukesh5" target="_blank"><img src={github} width={30} height={30}></img></a>
             </div>
@@ -195,6 +195,7 @@ function App() {
                             content={project.content}
                             expandedItems={expandedItems}
                             setExpandedItems={setExpandedItems}
+                            darkMode={darkMode}
                         />
                     ))}
                 </Accordion.Root>

@@ -8,14 +8,19 @@ type ProjectProps = {
     content: React.ReactNode;
     expandedItems: string[];
     setExpandedItems: React.Dispatch<React.SetStateAction<string[]>>;
+    darkMode: boolean;
   };
 
-const Project: React.FC<ProjectProps> = ({value, project_title, project_link, content, expandedItems, setExpandedItems}) => (    
+const Project: React.FC<ProjectProps> = ({value, project_title, project_link, content, expandedItems, setExpandedItems, darkMode}) => (    
     <Accordion.Item value={value} className="">
         <Accordion.Header>
         <Accordion.Trigger className="AccordionTrigger">
             <div className="flex justify-center items-center gap-x-2">
-                <ChevronDownIcon className="AccordionChevron" aria-hidden />
+                <ChevronDownIcon className="AccordionChevron" aria-hidden 
+                    onClick={() => {
+                        setExpandedItems((prev) => prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value]);
+                    }}
+                />
                 <div className='font-bold font-heading text-base sm:text-xl' >
                         <span onClick={() => {
                             setExpandedItems((prev) => prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value]);
@@ -27,9 +32,11 @@ const Project: React.FC<ProjectProps> = ({value, project_title, project_link, co
             </div>
         </Accordion.Trigger>
         </Accordion.Header>
-        <Accordion.Content className="AccordionContent ml-6 text-base sm:text-lg font-body">
+        <Accordion.Content className="AccordionContent text-base sm:text-lg font-body">
+        <div className={`bordercontent border-l-2 ${darkMode ? 'border-neutral-200' : 'border-neutral-900'}`}>
         <div className="h-1" />
         {content}
+        </div>
         <div className="h-5" />
         </Accordion.Content>
     </Accordion.Item>
