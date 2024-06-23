@@ -4,7 +4,8 @@ export default {
     theme: {
         fontFamily: {
             'body': ['spacesans'],
-            'heading': ['spacemono']
+            'heading': ['spacemono'],
+            'altmono': ['inconsolata']
         },
         extend: {
             keyframes: {

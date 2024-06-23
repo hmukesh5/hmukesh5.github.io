@@ -39,6 +39,7 @@ function App() {
     const googleDNSLink = <a href="https://developers.google.com/speed/public-dns" className={`underline ${darkmodeSwitcher}`} target="_blank">Google's DNS Servers</a>;
     const choredashLink = <a href="https://hmukesh.itch.io/chore-dash" className={`underline ${darkmodeSwitcher}`} target="_blank">itch.io</a>;
     const paytonLink = <a href="https://linkedin.com/in/prknezek" className={`underline ${darkmodeSwitcher}`} target="_blank">Payton Knezek</a>;
+    const adnanLink = <a href="https://adnan-yusuf.com" className={`underline ${darkmodeSwitcher}`} target="_blank">Adnan Yusuf</a>;
 
     const handleDNSLookupSubmit = async () => {
         try {
@@ -94,13 +95,13 @@ function App() {
                         <span className="font-bold text-amber-600">🏆 Capsher x Aggie Coding Club Coding Challenge 2023 1st place winner</span>
                         <br/>
                         A short, replayable 2D game where you control a character who must rush to complete chores before their mom comes home.
-                        Built in Python with the {pygameLink} module, with {paytonLink} and Adnan Yusuf. Available for download on {choredashLink}.
+                        Built in Python with the {pygameLink} module, with {paytonLink} and {adnanLink}. Available for download on {choredashLink}.
                     </>
         },
         {
             value: "jerma",
             title: <>Jerma985 discord bot | </>,
-            link: <a href="https://github.com/prknezek/Jerma985Bot" target="_blank" className={`underline ${darkmodeSwitcher}`}>github</a>,
+            link: <a href="https://youtube.com/watch?v=gCIfvgX4Vg4" target="_blank" className={`underline ${darkmodeSwitcher}`}>youtube</a>,
             content:<>
                         <span className="font-bold text-amber-600">🏆 Aggie Coding Club Discord Bot Challenge 2022 1st place winner</span>    
                         <br/>
@@ -159,10 +160,10 @@ function App() {
     }
 
     return (
-        <div className="min-h-screen max-w-5xl mx-auto py-6 sm:py-8 px-4 sm:px-6">
+        <div className="min-h-screen max-w-4xl mx-auto py-6 sm:py-8 px-4 sm:px-6">
 
             <div className="mb-4">
-                <p className="font-bold text-4xl sm:text-5xl font-heading">Hemanth Mukesh</p>                
+                <p className="font-semibold text-4xl sm:text-5xl font-heading">Hemanth Mukesh</p>                
             </div>
 
             <div className="mt-5 mb-5 flex justify-between w-20">
@@ -201,6 +202,10 @@ function App() {
                 </Accordion.Root>
             </div>
             
+            <div className="max-w-fit">
+
+            </div>
+
             <br/>
             <div className="">
                 <p className="text-base sm:text-lg mr-2 inline align-top">dark mode:</p>
