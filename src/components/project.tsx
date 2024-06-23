@@ -16,7 +16,7 @@ const Project: React.FC<ProjectProps> = ({value, project_title, project_link, co
         <Accordion.Trigger className="AccordionTrigger">
             <div className="flex justify-center items-center gap-x-2">
                 <ChevronDownIcon className="AccordionChevron" aria-hidden />
-                <div className='font-bold text-base sm:text-xl' >
+                <div className='font-bold font-heading text-base sm:text-xl' >
                         <span onClick={() => {
                             setExpandedItems((prev) => prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value]);
                         }}>

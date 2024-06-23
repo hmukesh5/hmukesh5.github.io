@@ -162,7 +162,7 @@ function App() {
         <div className="min-h-screen max-w-5xl mx-auto py-6 sm:py-8 px-4 sm:px-6">
 
             <div className="mb-4">
-                <p className="text-center font-bold text-4xl sm:text-5xl">Hemanth Mukesh</p>                
+                <p className="text-center font-bold text-4xl sm:text-5xl font-heading">Hemanth Mukesh</p>                
             </div>
 
             <div className="mt-5 mb-5 flex justify-evenly m-auto w-40">
@@ -179,7 +179,7 @@ function App() {
 
             <div className="max-w-fit">
                 <div className="flex align-middle mb-4 mt-6">
-                    <h3 className="font-bold text-xl sm:text-2xl underline">projects</h3>
+                    <h3 className="font-bold text-xl sm:text-2xl font-heading">projects</h3>
                     <button onClick={expandAll} className={`ml-4 border-black border-2 rounded text-base px-2 ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>
                         {expandedItems.length === projects.length ? "collapse all" : 
                          expandedItems.length == 0 ? "expand all" : "expand rest"}

@@ -10,6 +10,14 @@
     font-family: "spacesans";
     src: url('data/spacegrotesk/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
 }
+@font-face {
+    font-family: "sourcecode";
+    src: url('data/Source_Code_Pro/SourceCodePro-VariableFont_wght.ttf') format('truetype');
+}
+@font-face {
+    font-family: "inconsolata";
+    src: url('data/Inconsolata/Inconsolata-VariableFont_wdth.ttf') format('truetype');
+}
 
 html {
     overflow-y: scroll;
@@ -21,7 +29,7 @@ body {
     padding: 0px;
     background-color: white;
     color: black;
-    font-family: 'spacemono', sans-serif;
+    font-family: 'spacesans', sans-serif;
 }
 
 input:focus, textarea:focus {
