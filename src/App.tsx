@@ -203,7 +203,19 @@ function App() {
             </div>
             
             <div className="max-w-fit">
-
+                <div className="mb-2 mt-8">
+                    <h3 className="font-bold text-lg sm:text-xl font-heading">note</h3>
+                </div>
+                <div className="text-sm sm:text-base font-body">
+                    <p>
+                        You'll notice that the project descriptions are filled with links. They're meant to be clicked!
+                        That's because I don't want to leave those new to coding in the dark, wondering "how did he even do that?".
+                        These links all point to the specific resources that I've used to build my projects, all for FREE.
+                        Most of these projects can be found on my {githubLink}, but looking at raw code can be intimidating, so
+                        I encourage you to explore the links here first. 
+                        Hopefully, you'll learn something new about the world of software development! :)
+                    </p>
+                </div>
             </div>
 
             <br/>

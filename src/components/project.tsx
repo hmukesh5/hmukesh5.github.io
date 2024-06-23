@@ -21,7 +21,7 @@ const Project: React.FC<ProjectProps> = ({value, project_title, project_link, co
                         setExpandedItems((prev) => prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value]);
                     }}
                 />
-                <div className='font-bold font-heading text-base sm:text-xl' >
+                <div className='font-semibold font-heading text-base sm:text-xl' >
                         <span onClick={() => {
                             setExpandedItems((prev) => prev.includes(value) ? prev.filter((item) => item !== value) : [...prev, value]);
                         }}>
