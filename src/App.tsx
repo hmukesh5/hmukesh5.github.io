@@ -106,7 +106,8 @@ function App() {
                         <span className="font-bold text-amber-600">🏆 Aggie Coding Club Discord Bot Challenge 2022 1st place winner</span>    
                         <br/>
                         A Discord bot based on the popular Twitch streamer Jerma985.
-                        Built in Python with the {nextcordLink} module, with {paytonLink}.
+                        Built in Python with the {nextcordLink} module, a MySQL server with MAMP, and APIs including Twitch, YouTube, and Uberduck.
+                        Co-Developed with {paytonLink}.
                     </>
         },
         {
@@ -202,7 +203,7 @@ function App() {
                 </Accordion.Root>
             </div>
             
-            <div className="max-w-fit">
+            {/* <div className="max-w-fit">
                 <div className="mb-2 mt-8">
                     <h3 className="font-bold text-lg sm:text-xl font-heading">note</h3>
                 </div>
@@ -216,7 +217,7 @@ function App() {
                         Hopefully, you'll learn something new about the world of software development! :)
                     </p>
                 </div>
-            </div>
+            </div> */}
 
             <br/>
             <div className="">
