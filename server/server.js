@@ -51,9 +51,6 @@ app.post('/dns_app', (req, res) => {
                 console.log("  no error");
                 res.send(`${stdout}`);
             }
-        }).then(() => {
-            console.log('done w /dns_app');
-            child.kill();
         });
     }    
 });
@@ -90,9 +87,6 @@ app.post('/http_app', (req, res) => {
                 console.log("  no error");
                 res.send(`${stdout}`);
             }
-        }).then(() => {
-            console.log('done w /http_app');
-            child.kill();
         });
     }    
 });
