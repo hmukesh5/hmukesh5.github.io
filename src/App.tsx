@@ -10,6 +10,8 @@ function App() {
     const [expandedItems, setExpandedItems] = useState<string[]>([]);
     const [dnsLookupResult, setDNSLookupResult] = useState<string>("");
     const [dnsLookupDisable, setDNSLookupDisable] = useState<boolean>(false);
+    const [HTTPAppResult, setHTTPAppResult] = useState<string>("");
+    const [HTTPAppDisable, setHTTPAppDisable] = useState<boolean>(false);
 
     const darkColor = 'neutral-900';
     const lightColor = 'neutral-200';
@@ -40,21 +42,26 @@ function App() {
     const choredashLink = <a href="https://hmukesh.itch.io/chore-dash" className={`underline ${darkmodeSwitcher}`} target="_blank">itch.io</a>;
     const paytonLink = <a href="https://linkedin.com/in/prknezek" className={`underline ${darkmodeSwitcher}`} target="_blank">Payton Knezek</a>;
     const adnanLink = <a href="https://adnan-yusuf.com" className={`underline ${darkmodeSwitcher}`} target="_blank">Adnan Yusuf</a>;
+    const mysqlLink = <a href="https://www.mysql.com/" className={`underline ${darkmodeSwitcher}`} target="_blank">MySQL</a>;
+    const mampLink = <a href="https://www.mamp.info/en/" className={`underline ${darkmodeSwitcher}`} target="_blank">MAMP</a>;
+    const twitchAPILink = <a href="https://dev.twitch.tv/docs/api" className={`underline ${darkmodeSwitcher}`} target="_blank">Twitch API</a>;
+    const youtubeAPILink = <a href="https://developers.google.com/youtube/v3" className={`underline ${darkmodeSwitcher}`} target="_blank">YouTube API</a>;
+    const uberduckLink = <a href="https://uberduck.ai/" className={`underline ${darkmodeSwitcher}`} target="_blank">Uberduck</a>;
 
     const handleDNSLookupSubmit = async () => {
         try {
             const dns_input = document.getElementById("dnslookuptext") as HTMLInputElement;
             const dns_query = dns_input.value;
             
-            setDNSLookupResult("running... (might take up to 10 sec)");
+            setDNSLookupResult("running...");
             setDNSLookupDisable(true);
             console.log(JSON.stringify({query: dns_query}));
             
             const controller = new AbortController();
             const signal = controller.signal;
-            const timeoutID = setTimeout(() => controller.abort(), 10000);
+            const timeoutID = setTimeout(() => controller.abort(), 5000);
 
-            const response = await fetch('https://cloudwindows.hmukesh.me/test', {
+            const response = await fetch('https://cloudwindows.hmukesh.me/dns_app', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -71,11 +78,49 @@ function App() {
         } catch (error) {
             console.error('Error:', error);
             if (error.name === 'AbortError') {
-                setDNSLookupResult('request timed out, please try again.');
+                setDNSLookupResult('request timed out, is the server online?');
             } else {
                 setDNSLookupResult('an error occurred, please try again.');
             }
             setDNSLookupDisable(false);
+        }
+    };
+
+    const handleHTTPSubmit = async () => {
+        try {
+            const http_input = document.getElementById("httpapptext") as HTMLInputElement;
+            const http_query = http_input.value;
+            
+            setHTTPAppResult("running...");
+            setHTTPAppDisable(true);
+            console.log(JSON.stringify({query: http_query}));
+            
+            const controller = new AbortController();
+            const signal = controller.signal;
+            const timeoutID = setTimeout(() => controller.abort(), 5000);
+
+            const response = await fetch('https://cloudwindows.hmukesh.me/http_app', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({query: http_query}),
+                signal: signal
+            });
+
+            clearTimeout(timeoutID);
+        
+            const data = await response.text();
+            setHTTPAppResult(data);
+            setHTTPAppDisable(false);
+        } catch (error) {
+            console.error('Error:', error);
+            if (error.name === 'AbortError') {
+                setHTTPAppResult('request timed out, is the server online?');
+            } else {
+                setHTTPAppResult('an error occurred, please try again.');
+            }
+            setHTTPAppDisable(false);
         }
     };
 
@@ -106,7 +151,7 @@ function App() {
                         <span className="font-bold text-amber-600">🏆 Aggie Coding Club Discord Bot Challenge 2022 1st place winner</span>    
                         <br/>
                         A Discord bot based on the popular Twitch streamer Jerma985.
-                        Built in Python with the {nextcordLink} module, a MySQL server with MAMP, and APIs including Twitch, YouTube, and Uberduck.
+                        Built in Python with the {nextcordLink} module, a {mysqlLink} server with {mampLink}, and APIs including {twitchAPILink}, {youtubeAPILink}, and {uberduckLink}.
                         Co-Developed with {paytonLink}.
                     </>
         },
@@ -118,6 +163,7 @@ function App() {
                         During my networks class at A&M (CSCE 463), I created a suite of various network applications. This section is still a WIP, and will update as I work on it.
                         Built in C++, and hosted on an {awsec2Link} Windows instance running an {expressLink} {servercodeLink}. HTTPS certifications from {letsencryptLink}.
                         <br/>
+
                         <div className="mt-4" />
                         <span className="font-heading font-bold">DNS Lookup Tool:</span>
                         <br/>
@@ -141,6 +187,48 @@ function App() {
                             >
                             </textarea>
                         </div>
+
+                        <div className="mt-4">
+                            <span className="font-heading font-bold">HTTP Sender and Receiver:</span>
+                            <p className="mb-2">
+                                A HTTP sender and receiver that validates, sends, and receive HTTP packets.
+                            </p>
+                            
+                            <span className='font-body'>Input:</span>
+                            <div>
+                                <input id="httpapptext" type="text" name="query" placeholder='URL (ex "http://google.com")' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                                <button disabled={HTTPAppDisable} onClick={handleHTTPSubmit} className={`mt-2 px-2 border-2 border-black rounded sm:text-sm text-xs ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
+                            </div>
+                            <span className='font-body'>Output:</span>
+                            <br/>
+                            <textarea className={`mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
+                                placeholder='output will appear here...'
+                                value={HTTPAppResult}
+                            >
+                            </textarea>
+
+                        </div>
+
+                        {/* <div className="mt-4">
+                            <span className="font-heading font-bold">TCP Visualizer:</span>
+                            <p className="mb-2">
+                                TCP is something...
+                            </p>
+                            
+                            <span className='font-body'>Input:</span>
+                            <div>
+                                <input id="dnslookuptext" type="text" name="query" placeholder='URL (ex "http://google.com")' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                                <button disabled={false} onClick={() => {}} className={`mt-2 px-2 border-2 border-black rounded sm:text-sm text-xs ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
+                            </div>
+                            <span className='font-body'>Output:</span>
+                            <br/>
+                            <textarea className={`mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
+                                placeholder='output will appear here...'
+                                value={"d"}
+                            >
+                            </textarea>
+
+                        </div> */}
 
                     </>
         },
