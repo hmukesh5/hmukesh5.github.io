@@ -145,7 +145,7 @@ function App() {
         },
         {
             value: "jerma",
-            title: <>Jerma985 discord bot | </>,
+            title: <>Jerma985 bot | </>,
             link: <a href="https://youtube.com/watch?v=gCIfvgX4Vg4" target="_blank" className={`underline ${darkmodeSwitcher}`}>youtube</a>,
             content:<>
                         <span className="font-bold text-amber-600">🏆 Aggie Coding Club Discord Bot Challenge 2022 1st place winner</span>    
