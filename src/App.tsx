@@ -265,13 +265,14 @@ function App() {
                             <p className="mb-2">
                                 TCP stands for Transmission Control Protocol, and it's widely used for reliable data transfer.
                                 Although not fast enough for videos or games, this protocol ensures that all packets are delivered, re-transmitting if necessary.
-                                Below, you can edit the forward and reverse loss rate of a TCP transfer to see how TCP deals with packet loss.
+                                Below, you can edit the forward and reverse loss rate of a TCP transfer to see the effects of packet loss.
+                                Input 2 numbers between 0 and 1.
                             </p>
                             
                             <span className='font-body'>Loss Rate:</span>
                             <div>
-                                <input id="forwardloss" type="number" name="query" placeholder='Forward Loss' className={`font-heading mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-32 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
-                                <input id="reverseloss" type="number" name="query" placeholder='Reverse Loss' className={`font-heading mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-32 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                                <input id="forwardloss" type="number" name="query" placeholder='forward Loss' className={`font-heading mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-32 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                                <input id="reverseloss" type="number" name="query" placeholder='feverse Loss' className={`font-heading mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-32 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
                                 <button disabled={TCPAppDisable} onClick={handleTCPSubmit} className={`mt-2 px-2 border-2 border-black rounded sm:text-sm text-xs ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
                             </div>
                             <span className='font-body'>Output:</span>
