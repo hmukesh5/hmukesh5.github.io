@@ -189,9 +189,11 @@ function App() {
                         </div>
 
                         <div className="mt-4">
-                            <span className="font-heading font-bold">HTTP Sender and Receiver:</span>
+                            <span className="font-heading font-bold">HTTP Packet Sender and Parser:</span>
                             <p className="mb-2">
-                                A HTTP sender and receiver that validates, sends, and receive HTTP packets.
+                                A HTTP Packet sender and parser that validates, sends, and parses HTTP packets, displaying details about the entire process.
+                                One of the key features is that it can parse through the HTTP reply and extract the number of outgoing links, laying the foundation for a web crawler.
+                                Try typing in "http://google.com" to see the HTTP response from the home page of Google.
                             </p>
                             
                             <span className='font-body'>Input:</span>
@@ -206,7 +208,6 @@ function App() {
                                 value={HTTPAppResult}
                             >
                             </textarea>
-
                         </div>
 
                         {/* <div className="mt-4">
