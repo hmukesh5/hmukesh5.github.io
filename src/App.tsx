@@ -236,12 +236,12 @@ function App() {
                             Try typing in "google.com", or this website, "hmukesh.me".
                         </p>
                         <div className="font-heading">
-                            <span className='font-body'>Domain/IP:</span>
+                            <span className='font-heading'>Domain/IP:</span>
                             <div>
                                 <input id="dnslookuptext" type="text" name="query" placeholder='ex "google.com"' className={`font-heading mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
                                 <button disabled={dnsLookupDisable} onClick={handleDNSLookupSubmit} className={`mt-2 px-2 border-2 border-black rounded sm:text-sm text-xs ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
                             </div>
-                            <span className='font-body'>Output:</span>
+                            <span className='font-heading'>Output:</span>
                             <br/>
                             <textarea className={`font-heading mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
                                 placeholder='output will appear here...'
@@ -258,12 +258,12 @@ function App() {
                                 Try typing in "http://google.com" to see the HTTP response from the home page of Google.
                             </p>
                             
-                            <span className='font-body'>URL:</span>
+                            <span className='font-heading'>URL:</span>
                             <div>
                                 <input id="httpapptext" type="text" name="query" placeholder='ex "http://google.com"' className={`font-heading mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
                                 <button disabled={HTTPAppDisable} onClick={handleHTTPSubmit} className={`mt-2 px-2 border-2 border-black rounded sm:text-sm text-xs ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
                             </div>
-                            <span className='font-body'>Output:</span>
+                            <span className='font-heading'>Output:</span>
                             <br/>
                             <textarea className={`font-heading mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
                                 placeholder='output will appear here...'
