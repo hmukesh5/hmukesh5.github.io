@@ -12,6 +12,8 @@ function App() {
     const [dnsLookupDisable, setDNSLookupDisable] = useState<boolean>(false);
     const [HTTPAppResult, setHTTPAppResult] = useState<string>("");
     const [HTTPAppDisable, setHTTPAppDisable] = useState<boolean>(false);
+    const [TCPAppResult, setTCPAppResult] = useState<string>("");
+    const [TCPAppDisable, setTCPAppDisable] = useState<boolean>(false);
 
     const darkColor = 'neutral-900';
     const lightColor = 'neutral-200';
@@ -124,6 +126,54 @@ function App() {
         }
     };
 
+    const handleTCPSubmit = async () => {
+        try {
+            const tcp_input_forward = document.getElementById("forwardloss") as HTMLInputElement;
+            const tcp_input_reverse = document.getElementById("reverseloss") as HTMLInputElement;
+            const tcp_query_forward = tcp_input_forward.value;
+            const tcp_query_reverse = tcp_input_reverse.value;
+            
+            setTCPAppResult("running...(might take a while)");
+            setTCPAppDisable(true);
+            console.log(JSON.stringify(
+                {
+                    query_fwd: tcp_query_forward,
+                    query_rev: tcp_query_reverse
+                }));
+            
+            const controller = new AbortController();
+            const signal = controller.signal;
+            const timeoutID = setTimeout(() => controller.abort(), 10000);
+
+            const response = await fetch('https://cloudwindows.hmukesh.me/tcp_app', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(
+                    {
+                        query_fwd: tcp_query_forward,
+                        query_rev: tcp_query_reverse
+                    }),
+                signal: signal
+            });
+
+            clearTimeout(timeoutID);
+        
+            const data = await response.text();
+            setTCPAppResult(data);
+            setTCPAppDisable(false);
+        } catch (error) {
+            console.error('Error:', error);
+            if (error.name === 'AbortError') {
+                setTCPAppResult('request timed out, is the server online?');
+            } else {
+                setTCPAppResult('an error occurred, please try again.');
+            }
+            setTCPAppDisable(false);
+        }
+    };
+
     const projects = [
         {
             value: "portfolio",
@@ -174,9 +224,9 @@ function App() {
                             Try typing in "google.com", or this website, "hmukesh.me".
                         </p>
                         <div className="font-heading">
-                            <span className='font-body'>Input:</span>
+                            <span className='font-body'>Domain/IP:</span>
                             <div>
-                                <input id="dnslookuptext" type="text" name="query" placeholder='domain/IP (ex "google.com")' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                                <input id="dnslookuptext" type="text" name="query" placeholder='ex "google.com"' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
                                 <button disabled={dnsLookupDisable} onClick={handleDNSLookupSubmit} className={`mt-2 px-2 border-2 border-black rounded sm:text-sm text-xs ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
                             </div>
                             <span className='font-body'>Output:</span>
@@ -196,9 +246,9 @@ function App() {
                                 Try typing in "http://google.com" to see the HTTP response from the home page of Google.
                             </p>
                             
-                            <span className='font-body'>Input:</span>
+                            <span className='font-body'>URL:</span>
                             <div>
-                                <input id="httpapptext" type="text" name="query" placeholder='URL (ex "http://google.com")' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                                <input id="httpapptext" type="text" name="query" placeholder='ex "http://google.com"' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
                                 <button disabled={HTTPAppDisable} onClick={handleHTTPSubmit} className={`mt-2 px-2 border-2 border-black rounded sm:text-sm text-xs ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
                             </div>
                             <span className='font-body'>Output:</span>
@@ -210,26 +260,28 @@ function App() {
                             </textarea>
                         </div>
 
-                        {/* <div className="mt-4">
-                            <span className="font-heading font-bold">TCP Visualizer:</span>
+                        <div className="mt-4">
+                            <span className="font-heading font-bold">TCP Demonstration:</span>
                             <p className="mb-2">
-                                TCP is something...
+                                TCP stands for Transmission Control Protocol, and it's widely used for reliable data transfer.
+                                Although not fast enough for videos or games, this protocol ensures that all packets are delivered, re-transmitting if necessary.
+                                Below, you can edit the forward and reverse loss rate of a TCP transfer to see how TCP deals with packet loss.
                             </p>
                             
-                            <span className='font-body'>Input:</span>
+                            <span className='font-body'>Loss Rate:</span>
                             <div>
-                                <input id="dnslookuptext" type="text" name="query" placeholder='URL (ex "http://google.com")' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
-                                <button disabled={false} onClick={() => {}} className={`mt-2 px-2 border-2 border-black rounded sm:text-sm text-xs ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
+                                <input id="forwardloss" type="number" name="query" placeholder='Forward Loss' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-32 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                                <input id="reverseloss" type="number" name="query" placeholder='Reverse Loss' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-32 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                                <button disabled={TCPAppDisable} onClick={handleTCPSubmit} className={`mt-2 px-2 border-2 border-black rounded sm:text-sm text-xs ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
                             </div>
                             <span className='font-body'>Output:</span>
                             <br/>
                             <textarea className={`mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
                                 placeholder='output will appear here...'
-                                value={"d"}
+                                value={TCPAppResult}
                             >
                             </textarea>
-
-                        </div> */}
+                        </div>
 
                     </>
         },

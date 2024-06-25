@@ -91,6 +91,42 @@ app.post('/http_app', (req, res) => {
     }    
 });
 
+app.post('/tcp_app', (req, res) => {
+    console.log('running /tcp_app...');
+
+    if (!req.body.query_fwd || !req.body.query_rev) {
+        res.send('Invalid Loss - no input');
+        console.log('exiting, no input');
+    }
+    else {
+
+        // sanitize against space and ampersand
+        if (/\s|&/.test(req.body.query_fwd) || /\s|&/.test(req.body.query_rev)) {
+            res.send('Invalid URL - please do not use spaces or ampersands');
+            console.log('exiting, invalid characters');
+            return;
+        }
+
+        const command = `TCPApp.exe localhost 19 5 0.02 ${req.body.query_fwd} ${req.body.query_rev} 10`;
+        console.log("  " + command);
+        child = exec(command, (error, stdout, stderr) => {
+            if (error != null) {
+                console.log("  error caught");
+                if (stderr == '') {
+                    res.send(`${stdout}`);
+                    console.log("  no stderr");
+                } else {
+                    res.send(`Internal Server Error`);
+                    console.log("  oh we in trouble - server error");
+                }
+            } else {
+                console.log("  no error");
+                res.send(`${stdout}`);
+            }
+        });
+    }    
+});
+
 https.createServer(options, app).listen(443, () => {
     console.log('HTTPS Server running on port 443');
 });
