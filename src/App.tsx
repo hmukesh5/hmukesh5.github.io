@@ -49,6 +49,9 @@ function App() {
     const twitchAPILink = <a href="https://dev.twitch.tv/docs/api" className={`underline ${darkmodeSwitcher}`} target="_blank">Twitch API</a>;
     const youtubeAPILink = <a href="https://developers.google.com/youtube/v3" className={`underline ${darkmodeSwitcher}`} target="_blank">YouTube API</a>;
     const uberduckLink = <a href="https://uberduck.ai/" className={`underline ${darkmodeSwitcher}`} target="_blank">Uberduck</a>;
+    const pythonLink = <a href="https://www.python.org/" className={`underline ${darkmodeSwitcher}`} target="_blank">Python</a>;
+    const cppLink = <a href="https://isocpp.org/" className={`underline ${darkmodeSwitcher}`} target="_blank">C++</a>;
+    const boldSep = <span className="font-bold"> | </span>;
 
     const handleDNSLookupSubmit = async () => {
         try {
@@ -179,8 +182,12 @@ function App() {
             value: "portfolio",
             title: <>this website</>,
             link: <></>,
-            content: <>The website you are currently viewing!
-                       Front-end built with {reactLink} and {tailwindCSSLink}, hosted on {githubPagesLink}. Back-end built with {expressLink}, hosted on an {awsec2Link} instance. Domain from {namecheapLink} through the {githubStudentLink}.</>
+            content: <>
+                        The website you are currently viewing!
+                        <div className="h-2" />
+                        <span className="italic">{reactLink} | {expressLink} | {awsec2Link}</span>
+                    </>
+                        
         },
         {
             value: "choredash",
@@ -190,7 +197,9 @@ function App() {
                         <span className="font-bold text-amber-600">🏆 Capsher x Aggie Coding Club Coding Challenge 2023 1st place winner</span>
                         <br/>
                         A short, replayable 2D game where you control a character who must rush to complete chores before their mom comes home.
-                        Built in Python with the {pygameLink} module, with {paytonLink} and {adnanLink}. Available for download on {choredashLink}.
+                        Built with {paytonLink} and {adnanLink}. Available for download on {choredashLink}.
+                        <div className="h-2" />
+                        <span className="italic">{pythonLink} | {pygameLink}</span>
                     </>
         },
         {
@@ -200,9 +209,9 @@ function App() {
             content:<>
                         <span className="font-bold text-amber-600">🏆 Aggie Coding Club Discord Bot Challenge 2022 1st place winner</span>    
                         <br/>
-                        A Discord bot based on the popular Twitch streamer Jerma985.
-                        Built in Python with the {nextcordLink} module, a {mysqlLink} server with {mampLink}, and APIs including {twitchAPILink}, {youtubeAPILink}, and {uberduckLink}.
-                        Co-Developed with {paytonLink}.
+                        A Discord bot based on the popular Twitch streamer Jerma985. Built with {paytonLink}.
+                        <div className="h-2" />
+                        <span className="italic">{pythonLink} | {nextcordLink} | {mysqlLink}</span>                        
                     </>
         },
         {
@@ -210,12 +219,15 @@ function App() {
             title: <>C++ network applications</>,
             link: <></>,
             content:<>
-                        During my networks class at A&M (CSCE 463), I created a suite of various network applications. This section is still a WIP, and will update as I work on it.
-                        Built in C++, and hosted on an {awsec2Link} Windows instance running an {expressLink} {servercodeLink}. HTTPS certifications from {letsencryptLink}.
-                        <br/>
+                        During my networks class at A&M (CSCE 463), I created a suite of various network applications.
+                        Below, I have included demonstrations of 3 of these programs.
+                        Feel free to try them out!
+                        
+                        <div className="h-2" />
+                        <span className="italic">{cppLink} | {awsec2Link}</span>
 
-                        <div className="mt-4" />
-                        <span className="font-heading font-bold">DNS Lookup Tool:</span>
+                        <div className="mt-8" />
+                        <span className="font-heading font-bold">DNS Lookup:</span>
                         <br/>
                         <p className="mb-2">
                             DNS stands for Domain Name Service.
@@ -241,7 +253,7 @@ function App() {
                         <div className="mt-4">
                             <span className="font-heading font-bold">HTTP Packet Sender and Parser:</span>
                             <p className="mb-2">
-                                A HTTP Packet sender and parser that validates, sends, and parses HTTP packets, displaying details about the entire process.
+                                A HTTP Packet sender and parser that validates, sends, and parses HTTP packets, displaying details about the entire process (including a DNS lookup, shown above).
                                 One of the key features is that it can parse through the HTTP reply and extract the number of outgoing links, laying the foundation for a web crawler.
                                 Try typing in "http://google.com" to see the HTTP response from the home page of Google.
                             </p>
@@ -264,18 +276,18 @@ function App() {
                             <span className="font-heading font-bold">TCP Demonstration:</span>
                             <p className="mb-2">
                                 TCP stands for Transmission Control Protocol, and it's widely used for reliable data transfer.
-                                Although not fast enough for videos or games, this protocol ensures that all packets are delivered, re-transmitting if necessary.
-                                Below, you can edit the forward and reverse loss rate of a TCP transfer to see the effects of packet loss.
+                                Although not fast enough for videos or games, this protocol ensures that all packets are delivered by re-transmitting lost packets.
+                                Below, you can edit the forward and reverse loss rate of a TCP transfer and observe the effects.
                                 Input 2 numbers between 0 and 1.
                             </p>
                             
-                            <span className='font-body'>Loss Rate:</span>
+                            <span className='font-heading'>Loss Rate:</span>
                             <div>
-                                <input id="forwardloss" type="number" name="query" placeholder='forward Loss' className={`font-heading mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-32 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
-                                <input id="reverseloss" type="number" name="query" placeholder='feverse Loss' className={`font-heading mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-32 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                                <input id="forwardloss" type="number" name="query" placeholder='forward loss' className={`font-heading mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-32 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                                <input id="reverseloss" type="number" name="query" placeholder='reverse loss' className={`font-heading mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-32 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
                                 <button disabled={TCPAppDisable} onClick={handleTCPSubmit} className={`mt-2 px-2 border-2 border-black rounded sm:text-sm text-xs ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
                             </div>
-                            <span className='font-body'>Output:</span>
+                            <span className='font-heading'>Output:</span>
                             <br/>
                             <textarea className={`font-heading mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
                                 placeholder='output will appear here...'
@@ -290,7 +302,10 @@ function App() {
             value: "wordle",
             title: <>wordle by hemanth | </>,
             link: <a href="http://wordle-clone-5fbt.onrender.com/" target="_blank" className={`underline ${darkmodeSwitcher}`}>link</a>,
-            content: <>A word puzzle as a web app inspired by the popular {wordleLink} game. Built with {reactLink} and the help of various YouTube videos.</>
+            content: <>A word puzzle as a web app inspired by the popular {wordleLink} game.
+                    <div className="h-2" />
+                    <span className="italic">{reactLink}</span>   
+            </>
         },
     ];
 
