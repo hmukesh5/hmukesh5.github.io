@@ -133,7 +133,7 @@ function App() {
             const tcp_query_forward = tcp_input_forward.value;
             const tcp_query_reverse = tcp_input_reverse.value;
             
-            setTCPAppResult("running...(might take a while)");
+            setTCPAppResult("running... (this can take a while with large packet loss)");
             setTCPAppDisable(true);
             console.log(JSON.stringify(
                 {
@@ -226,12 +226,12 @@ function App() {
                         <div className="font-heading">
                             <span className='font-body'>Domain/IP:</span>
                             <div>
-                                <input id="dnslookuptext" type="text" name="query" placeholder='ex "google.com"' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                                <input id="dnslookuptext" type="text" name="query" placeholder='ex "google.com"' className={`font-heading mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
                                 <button disabled={dnsLookupDisable} onClick={handleDNSLookupSubmit} className={`mt-2 px-2 border-2 border-black rounded sm:text-sm text-xs ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
                             </div>
                             <span className='font-body'>Output:</span>
                             <br/>
-                            <textarea className={`mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
+                            <textarea className={`font-heading mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
                                 placeholder='output will appear here...'
                                 value={dnsLookupResult}
                             >
@@ -248,12 +248,12 @@ function App() {
                             
                             <span className='font-body'>URL:</span>
                             <div>
-                                <input id="httpapptext" type="text" name="query" placeholder='ex "http://google.com"' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                                <input id="httpapptext" type="text" name="query" placeholder='ex "http://google.com"' className={`font-heading mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
                                 <button disabled={HTTPAppDisable} onClick={handleHTTPSubmit} className={`mt-2 px-2 border-2 border-black rounded sm:text-sm text-xs ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
                             </div>
                             <span className='font-body'>Output:</span>
                             <br/>
-                            <textarea className={`mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
+                            <textarea className={`font-heading mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
                                 placeholder='output will appear here...'
                                 value={HTTPAppResult}
                             >
@@ -270,13 +270,13 @@ function App() {
                             
                             <span className='font-body'>Loss Rate:</span>
                             <div>
-                                <input id="forwardloss" type="number" name="query" placeholder='Forward Loss' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-32 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
-                                <input id="reverseloss" type="number" name="query" placeholder='Reverse Loss' className={`mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-32 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                                <input id="forwardloss" type="number" name="query" placeholder='Forward Loss' className={`font-heading mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-32 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                                <input id="reverseloss" type="number" name="query" placeholder='Reverse Loss' className={`font-heading mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-32 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
                                 <button disabled={TCPAppDisable} onClick={handleTCPSubmit} className={`mt-2 px-2 border-2 border-black rounded sm:text-sm text-xs ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
                             </div>
                             <span className='font-body'>Output:</span>
                             <br/>
-                            <textarea className={`mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
+                            <textarea className={`font-heading mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
                                 placeholder='output will appear here...'
                                 value={TCPAppResult}
                             >
