@@ -215,6 +215,15 @@ function App() {
                     </>
         },
         {
+            value: "wordle",
+            title: <>wordle by hemanth | </>,
+            link: <a href="http://wordle-clone-5fbt.onrender.com/" target="_blank" className={`underline ${darkmodeSwitcher}`}>link</a>,
+            content: <>A word puzzle as a web app inspired by the popular {wordleLink} game.
+                    <div className="h-2" />
+                    <span className="italic">{reactLink}</span>   
+            </>
+        },
+        {
             value: "network",
             title: <>C++ network applications</>,
             link: <></>,
@@ -298,15 +307,6 @@ function App() {
 
                     </>
         },
-        {
-            value: "wordle",
-            title: <>wordle by hemanth | </>,
-            link: <a href="http://wordle-clone-5fbt.onrender.com/" target="_blank" className={`underline ${darkmodeSwitcher}`}>link</a>,
-            content: <>A word puzzle as a web app inspired by the popular {wordleLink} game.
-                    <div className="h-2" />
-                    <span className="italic">{reactLink}</span>   
-            </>
-        },
     ];
 
     function expandAll() {
@@ -324,13 +324,13 @@ function App() {
                 <p className="font-semibold text-4xl sm:text-5xl font-heading">Hemanth Mukesh</p>                
             </div>
 
-            <div className="my-5 sm:my-7 flex justify-between w-20">
+            <div className="mt-5 mb-5 sm:mt-7 sm:mb-6 flex justify-between w-20">
                 <a className={darkMode ? "invert" : ""} href="https://linkedin.com/in/hmukesh5" target="_blank"><img src={linkedin} width={30} height={30}></img></a>
                 <a className={darkMode ? "invert" : ""} href="https://github.com/hmukesh5" target="_blank"><img src={github} width={30} height={30}></img></a>
             </div>
 
             <h3 className="font-bold text-xl sm:text-2xl font-heading mb-1 sm:mb-2">about</h3>
-            <div className="mb-4 text-base sm:text-xl font-body">
+            <div className="mb-3 text-base sm:text-xl font-body">
                 <p>Hello! My name is Hemanth Mukesh, and I'm a computer science senior at Texas A&M University. 
                    This website serves to showcase my work throughout college.
                    Feel free to contact me on {linkedinLink} or at {emailLink}!
@@ -338,7 +338,7 @@ function App() {
             </div>
 
             <div className="max-w-fit">
-                <div className="flex align-middle mb-4 mt-6 sm:mt-8">
+                <div className="flex align-middle mb-3 sm:mb-4 mt-5 sm:mt-7">
                     <h3 className="font-bold text-xl sm:text-2xl font-heading">projects</h3>
                     <button onClick={expandAll} className={`ml-4 border-black border-2 rounded text-base px-2 ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>
                         {expandedItems.length === projects.length ? "collapse all" : 
@@ -346,7 +346,7 @@ function App() {
                     </button>
                 </div>
                 
-                <Accordion.Root value={expandedItems} type='multiple' className="flex flex-col gap-3">
+                <Accordion.Root value={expandedItems} type='multiple' className="flex flex-col gap-2 sm:gap-3">
                     {projects.map(project => (
                         <Project
                             value={project.value}
