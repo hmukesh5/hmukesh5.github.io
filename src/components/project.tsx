@@ -34,10 +34,10 @@ const Project: React.FC<ProjectProps> = ({value, project_title, project_link, co
         </Accordion.Header>
         <Accordion.Content className="AccordionContent text-base sm:text-lg font-body">
         <div className={`bordercontent border-l-2 ${darkMode ? 'border-neutral-200' : 'border-neutral-900'}`}>
-        <div className="h-1" />
+        <div className="sm:h-1" />
         {content}
         </div>
-        <div className="h-5" />
+        <div className="h-1 sm:h-5" />
         </Accordion.Content>
     </Accordion.Item>
 );

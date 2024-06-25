@@ -329,7 +329,7 @@ function App() {
                 <a className={darkMode ? "invert" : ""} href="https://github.com/hmukesh5" target="_blank"><img src={github} width={30} height={30}></img></a>
             </div>
 
-            <h3 className="font-bold text-xl sm:text-2xl font-heading mb-2 sm:mb-3">about</h3>
+            <h3 className="font-bold text-xl sm:text-2xl font-heading mb-1 sm:mb-2">about</h3>
             <div className="mb-4 text-base sm:text-xl font-body">
                 <p>Hello! My name is Hemanth Mukesh, and I'm a computer science senior at Texas A&M University. 
                    This website serves to showcase my work throughout college.
@@ -338,7 +338,7 @@ function App() {
             </div>
 
             <div className="max-w-fit">
-                <div className="flex align-middle mb-4 mt-5 sm:mt-7">
+                <div className="flex align-middle mb-4 mt-6 sm:mt-8">
                     <h3 className="font-bold text-xl sm:text-2xl font-heading">projects</h3>
                     <button onClick={expandAll} className={`ml-4 border-black border-2 rounded text-base px-2 ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>
                         {expandedItems.length === projects.length ? "collapse all" : 
