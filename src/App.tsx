@@ -6,7 +6,10 @@ import github from './data/github.png';
 import { useState, useEffect } from 'react';
 
 function App() {
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode] = useState(() => {
+        const savedMode = localStorage.getItem('darkMode');
+        return savedMode === 'true' ? true : false;
+    });
     const [expandedItems, setExpandedItems] = useState<string[]>([]);
     const [dnsLookupResult, setDNSLookupResult] = useState<string>("");
     const [dnsLookupDisable, setDNSLookupDisable] = useState<boolean>(false);
@@ -21,6 +24,7 @@ function App() {
     useEffect(() => {
         document.body.style.backgroundColor = darkMode ? "rgb(23,23,23)" : "white";
         document.body.style.color = darkMode ? "rgb(229,229,229)" : "rgb(23,23,23)";
+        localStorage.setItem('darkMode', darkMode.toString());
     }, [darkMode]);  
 
     const darkmodeSwitcher = `${darkMode ? 'hover:bg-neutral-200 hover:text-black' : 'hover:bg-neutral-900 hover:text-neutral-100'}`;
@@ -381,7 +385,7 @@ function App() {
             <div className="flex items-center">
                 <p className="font-heading text-base sm:text-lg mr-3 inline align-top">dark mode</p>
                 
-                <Switch.Root className="SwitchRoot align-center" id="airplane-mode" onCheckedChange={(checked) => {
+                <Switch.Root className="SwitchRoot align-center" id="airplane-mode" checked={darkMode} onCheckedChange={(checked) => {
                     setDarkMode(checked);
                 }}>
                     <Switch.Thumb className="SwitchThumb" />
