@@ -314,7 +314,7 @@ function App() {
         },
         {
             value: "messwaffles",
-            title: <>Mess Waffles Point of Sale</>,
+            title: <>Mess Waffles point of sale</>,
             link: <></>,
             content:
                 <>
