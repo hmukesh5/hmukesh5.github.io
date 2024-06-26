@@ -3,20 +3,12 @@
 @import 'tailwindcss/utilities';
 
 @font-face {
-    font-family: "spacemono";
-    src: url('data/spacemono/SpaceMono-Regular.ttf') format('truetype');
-}
-@font-face {
     font-family: "spacesans";
     src: url('data/spacegrotesk/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
 }
 @font-face {
-    font-family: "sourcecode";
-    src: url('data/Source_Code_Pro/SourceCodePro-VariableFont_wght.ttf') format('truetype');
-}
-@font-face {
-    font-family: "inconsolata";
-    src: url('data/Inconsolata/Inconsolata-VariableFont_wdth.ttf') format('truetype');
+    font-family: "dm_mono";
+    src: url('data/DM_Mono/DMMono-Regular.ttf') format('truetype');
 }
 
 html {

@@ -55,7 +55,8 @@ function App() {
     const uberduckLink = <a href="https://uberduck.ai/" className={`underline ${darkmodeSwitcher}`} target="_blank">Uberduck</a>;
     const pythonLink = <a href="https://www.python.org/" className={`underline ${darkmodeSwitcher}`} target="_blank">Python</a>;
     const cppLink = <a href="https://isocpp.org/" className={`underline ${darkmodeSwitcher}`} target="_blank">C++</a>;
-    const boldSep = <span className="font-bold"> | </span>;
+    const postgresLink = <a href="https://www.postgresql.org/" className={`underline ${darkmodeSwitcher}`} target="_blank">PostgreSQL</a>;
+    const nodeLink = <a href="https://nodejs.org/en/" className={`underline ${darkmodeSwitcher}`} target="_blank">Node.js</a>;
 
     const handleDNSLookupSubmit = async () => {
         try {
@@ -310,6 +311,22 @@ function App() {
                         </div>
 
                     </>
+        },
+        {
+            value: "messwaffles",
+            title: <>Mess Waffles Point of Sale</>,
+            link: <></>,
+            content:
+                <>
+                    This was our final group project during CSCE 315/331.
+                    As a team of 5, using the Agile methodology, we developed a full stack Point of Sale system based on a restaurant called Mess Waffles.
+                    I was the primary backend lead, working on the database and API.
+                    Unfortunately, the database has been cleared by A&M and is no longer available, so the site no longer works as intended.
+                    However, this project taught me a lot about Agile, effective teamwork, and clear communication to resolve issues.
+                    If you'd still like to view the frontend, you can do so <a href="http://messwafflespos.onrender.com/" target="_blank" className={`underline ${darkmodeSwitcher}`}>here</a>.
+                    <div className="h-2" />
+                    <span className="italic">{postgresLink} | {expressLink} | {reactLink}</span>
+                </>
         },
     ];
 
