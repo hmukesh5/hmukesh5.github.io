@@ -3,7 +3,6 @@ import * as Switch from '@radix-ui/react-switch';
 import Project from './components/project.tsx';
 import linkedin from './data/linkedin.png';
 import github from './data/github.png';
-import resume from './data/documenticon.png';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -334,10 +333,9 @@ function App() {
                 <p className="font-semibold text-4xl sm:text-5xl font-heading">Hemanth Mukesh</p>                
             </div>
 
-            <div className="mt-5 mb-5 sm:mt-6 sm:mb-6 flex justify-between w-28 sm:w-36 items-center">
+            <div className="mt-5 mb-5 sm:mt-6 sm:mb-6 flex justify-between w-16 sm:w-24 items-center">
                 <a className={darkMode ? "invert" : ""} href="https://linkedin.com/in/hmukesh5" target="_blank"><img src={linkedin} className="w-6 sm:w-8"></img></a>
                 <a className={darkMode ? "invert" : ""} href="https://github.com/hmukesh5" target="_blank"><img src={github} className="w-6 sm:w-8"></img></a>
-                <a className={darkMode ? "invert" : ""} href="resume/Hemanth_Mukesh_Resume.pdf" target="_blank"><img src={resume} className="w-5 sm:w-7"/></a>
             </div>
 
             <h3 className="font-bold text-xl sm:text-2xl font-heading mb-1 sm:mb-2">about</h3>
