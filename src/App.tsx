@@ -3,6 +3,7 @@ import * as Switch from '@radix-ui/react-switch';
 import Project from './components/project.tsx';
 import linkedin from './data/linkedin.png';
 import github from './data/github.png';
+import resume from './data/documenticon.png';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -18,8 +19,8 @@ function App() {
     const [TCPAppResult, setTCPAppResult] = useState<string>("");
     const [TCPAppDisable, setTCPAppDisable] = useState<boolean>(false);
 
-    const darkColor = 'neutral-900';
-    const lightColor = 'neutral-200';
+    // const darkColor = 'neutral-900';
+    // const lightColor = 'neutral-200';
 
     useEffect(() => {
         document.body.style.backgroundColor = darkMode ? "rgb(23,23,23)" : "white";
@@ -30,33 +31,21 @@ function App() {
     const darkmodeSwitcher = `${darkMode ? 'hover:bg-neutral-200 hover:text-black' : 'hover:bg-neutral-900 hover:text-neutral-100'}`;
 
     const reactLink = <a href="https://react.dev/" className={`underline ${darkmodeSwitcher}`} target="_blank">React.js</a>;
-    const tailwindCSSLink = <a href="https://tailwindcss.com/" className={`underline ${darkmodeSwitcher}`} target="_blank">Tailwind CSS</a>;
     const wordleLink = <a href="https://www.nytimes.com/games/wordle/index.html" className={`underline ${darkmodeSwitcher}`} target="_blank">Wordle</a>;
     const pygameLink = <a href="https://www.pygame.org/wiki/about" className={`underline ${darkmodeSwitcher}`} target="_blank">pygame</a>;
     const nextcordLink = <a href="https://docs.nextcord.dev/en/stable/" className={`underline ${darkmodeSwitcher}`} target="_blank">nextcord</a>;
     const expressLink = <a href="https://expressjs.com/" className={`underline ${darkmodeSwitcher}`} target="_blank">Express.js</a>;
-    const githubLink = <a href="https://github.com/hmukesh5" className={`underline ${darkmodeSwitcher}`} target="_blank">Github</a>;
     const linkedinLink = <a href="https://linkedin.com/in/hmukesh5" className={`underline ${darkmodeSwitcher}`} target="_blank">LinkedIn</a>;
     const emailLink = <a href="mailto:hmukesh@outlook.com" className={`underline ${darkmodeSwitcher}`}>hmukesh@outlook.com</a>;
     const awsec2Link = <a href="https://aws.amazon.com/ec2/" className={`underline ${darkmodeSwitcher}`} target="_blank">AWS EC2</a>;
-    const servercodeLink = <a href="https://github.com/hmukesh5/hmukesh5.github.io/tree/main/server" className={`underline ${darkmodeSwitcher}`} target="_blank">server</a>;
-    const namecheapLink = <a href="https://www.namecheap.com/" className={`underline ${darkmodeSwitcher}`} target="_blank">namecheap</a>;
-    const githubStudentLink = <a href="https://education.github.com/pack/offers" className={`underline ${darkmodeSwitcher}`} target="_blank">Github Student Developer Pack</a>;
-    const githubPagesLink = <a href="https://pages.github.com/" className={`underline ${darkmodeSwitcher}`} target="_blank">Github Pages</a>;
-    const letsencryptLink = <a href="https://letsencrypt.org/" className={`underline ${darkmodeSwitcher}`} target="_blank">Let's Encrypt</a>;
     const googleDNSLink = <a href="https://developers.google.com/speed/public-dns" className={`underline ${darkmodeSwitcher}`} target="_blank">Google's DNS Servers</a>;
     const choredashLink = <a href="https://hmukesh.itch.io/chore-dash" className={`underline ${darkmodeSwitcher}`} target="_blank">itch.io</a>;
     const paytonLink = <a href="https://linkedin.com/in/prknezek" className={`underline ${darkmodeSwitcher}`} target="_blank">Payton Knezek</a>;
     const adnanLink = <a href="https://adnan-yusuf.com" className={`underline ${darkmodeSwitcher}`} target="_blank">Adnan Yusuf</a>;
     const mysqlLink = <a href="https://www.mysql.com/" className={`underline ${darkmodeSwitcher}`} target="_blank">MySQL</a>;
-    const mampLink = <a href="https://www.mamp.info/en/" className={`underline ${darkmodeSwitcher}`} target="_blank">MAMP</a>;
-    const twitchAPILink = <a href="https://dev.twitch.tv/docs/api" className={`underline ${darkmodeSwitcher}`} target="_blank">Twitch API</a>;
-    const youtubeAPILink = <a href="https://developers.google.com/youtube/v3" className={`underline ${darkmodeSwitcher}`} target="_blank">YouTube API</a>;
-    const uberduckLink = <a href="https://uberduck.ai/" className={`underline ${darkmodeSwitcher}`} target="_blank">Uberduck</a>;
     const pythonLink = <a href="https://www.python.org/" className={`underline ${darkmodeSwitcher}`} target="_blank">Python</a>;
     const cppLink = <a href="https://isocpp.org/" className={`underline ${darkmodeSwitcher}`} target="_blank">C++</a>;
     const postgresLink = <a href="https://www.postgresql.org/" className={`underline ${darkmodeSwitcher}`} target="_blank">PostgreSQL</a>;
-    const nodeLink = <a href="https://nodejs.org/en/" className={`underline ${darkmodeSwitcher}`} target="_blank">Node.js</a>;
 
     const handleDNSLookupSubmit = async () => {
         try {
@@ -345,9 +334,10 @@ function App() {
                 <p className="font-semibold text-4xl sm:text-5xl font-heading">Hemanth Mukesh</p>                
             </div>
 
-            <div className="mt-5 mb-5 sm:mt-7 sm:mb-6 flex justify-between w-20">
-                <a className={darkMode ? "invert" : ""} href="https://linkedin.com/in/hmukesh5" target="_blank"><img src={linkedin} width={30} height={30}></img></a>
-                <a className={darkMode ? "invert" : ""} href="https://github.com/hmukesh5" target="_blank"><img src={github} width={30} height={30}></img></a>
+            <div className="mt-5 mb-5 sm:mt-6 sm:mb-6 flex justify-between w-28 sm:w-36 items-center">
+                <a className={darkMode ? "invert" : ""} href="https://linkedin.com/in/hmukesh5" target="_blank"><img src={linkedin} className="w-6 sm:w-8"></img></a>
+                <a className={darkMode ? "invert" : ""} href="https://github.com/hmukesh5" target="_blank"><img src={github} className="w-6 sm:w-8"></img></a>
+                <a className={darkMode ? "invert" : ""} href="resume/Hemanth_Mukesh_Resume.pdf" target="_blank"><img src={resume} className="w-5 sm:w-7"/></a>
             </div>
 
             <h3 className="font-bold text-xl sm:text-2xl font-heading mb-1 sm:mb-2">about</h3>
@@ -381,22 +371,6 @@ function App() {
                     ))}
                 </Accordion.Root>
             </div>
-            
-            {/* <div className="max-w-fit">
-                <div className="mb-2 mt-8">
-                    <h3 className="font-bold text-lg sm:text-xl font-heading">note</h3>
-                </div>
-                <div className="text-sm sm:text-base font-body">
-                    <p>
-                        You'll notice that this website is filled with external links.
-                        That's because I don't want to leave you wondering "how did he even make that?".
-                        These links point to the resources that I've used to build my projects, all for FREE.
-                        Most of these projects can be found on my {githubLink}, but 
-                        I encourage you to explore the links here first. 
-                        Hopefully, you'll learn something new about the world of software development! :)
-                    </p>
-                </div>
-            </div> */}
 
             <br/>
             <div className="flex items-center">
