@@ -17,6 +17,8 @@ function App() {
     const [HTTPAppDisable, setHTTPAppDisable] = useState<boolean>(false);
     const [TCPAppResult, setTCPAppResult] = useState<string>("");
     const [TCPAppDisable, setTCPAppDisable] = useState<boolean>(false);
+    const [serverstatus, setServerStatus] = useState<string>("...");
+    const [statusclass, setStatusClass] = useState<string>("");
 
     // const darkColor = 'neutral-900';
     // const lightColor = 'neutral-200';
@@ -25,7 +27,22 @@ function App() {
         document.body.style.backgroundColor = darkMode ? "rgb(23,23,23)" : "white";
         document.body.style.color = darkMode ? "rgb(229,229,229)" : "rgb(23,23,23)";
         localStorage.setItem('darkMode', darkMode.toString());
-    }, [darkMode]);  
+    }, [darkMode]);
+
+    useEffect(() => {
+        fetch('https://cloudwindows.hmukesh.me/')
+            .then(response => response.text())
+            .then(data => {
+                if (data === 'Hello World') {
+                    setServerStatus('online');
+                    setStatusClass('text-green-500');
+                } else {
+                    setServerStatus('offline - try refreshing');
+                    setStatusClass('text-red-500');
+                }
+            })
+            .catch(error => {setServerStatus('offline - try refreshing'); setStatusClass('text-red-500');});
+    }, []);
 
     const darkmodeSwitcher = `${darkMode ? 'hover:bg-neutral-200 hover:text-black' : 'hover:bg-neutral-900 hover:text-neutral-100'}`;
 
@@ -224,10 +241,10 @@ function App() {
                         During my networks class at A&M (CSCE 463), I created a suite of various network applications.
                         Below, I have included demonstrations of 3 of these programs.
                         Feel free to try them out!
-                        
                         <div className="h-2" />
                         <span className="italic">{cppLink} | {awsec2Link}</span>
-
+                        <br/><br/>
+                        Server Status: <span className={`font-bold ${statusclass}`}>{serverstatus}</span>
                         <div className="mt-8" />
                         <span className="font-heading font-bold">DNS Lookup:</span>
                         <br/>
