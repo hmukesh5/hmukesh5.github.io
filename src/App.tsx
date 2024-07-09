@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 function App() {
     const [darkMode, setDarkMode] = useState(() => {
         const savedMode = localStorage.getItem('darkMode');
-        return savedMode === 'true' ? true : false;
+        return savedMode === 'false' ? false : true;
     });
     const [expandedItems, setExpandedItems] = useState<string[]>([]);
     const [dnsLookupResult, setDNSLookupResult] = useState<string>("");
