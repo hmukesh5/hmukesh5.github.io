@@ -201,7 +201,7 @@ function App() {
         },
         {
             value: "choredash",
-            title: <>ChoreDash | </>,
+            title: <>choredash | </>,
             link: <a href="https://hmukesh.itch.io/chore-dash" target="_blank" className={`underline ${darkmodeSwitcher}`}>homepage</a>,
             content:<>
                         <span className="font-bold text-amber-600">🏆 Capsher x Aggie Coding Club Coding Challenge 2023 1st place winner</span>
@@ -214,7 +214,7 @@ function App() {
         },
         {
             value: "jerma",
-            title: <>Jerma985 discord bot | </>,
+            title: <>jerma985 discord bot | </>,
             link: <a href="https://youtube.com/watch?v=gCIfvgX4Vg4" target="_blank" className={`underline ${darkmodeSwitcher}`}>demo</a>,
             content:<>
                         <span className="font-bold text-amber-600">🏆 Aggie Coding Club Discord Bot Challenge 2022 1st place winner</span>    
@@ -235,7 +235,7 @@ function App() {
         },
         {
             value: "network",
-            title: <>C++ network applications</>,
+            title: <>c++ network applications</>,
             link: <></>,
             content:<>
                         During my networks class at A&M (CSCE 463), I created a suite of various network applications.
@@ -319,7 +319,7 @@ function App() {
         },
         {
             value: "messwaffles",
-            title: <>Mess Waffles point of sale</>,
+            title: <>mess waffles website</>,
             link: <></>,
             content:
                 <>
