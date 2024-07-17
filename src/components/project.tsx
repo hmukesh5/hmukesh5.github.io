@@ -37,7 +37,7 @@ const Project: React.FC<ProjectProps> = ({value, project_title, project_link, co
         <div className="sm:h-1" />
         {content}
         </div>
-        <div className="h-1 sm:h-5" />
+        <div className="h-1 sm:h-2" />
         </Accordion.Content>
     </Accordion.Item>
 );

@@ -187,7 +187,7 @@ function App() {
         }
     };
 
-    const projects = [
+    const websites = [
         {
             value: "portfolio",
             title: <>this website</>,
@@ -199,6 +199,34 @@ function App() {
                     </>
                         
         },
+        {
+            value: "wordle",
+            title: <>wordle by hemanth | </>,
+            link: <a href="http://wordle-clone-5fbt.onrender.com/" target="_blank" className={`underline ${darkmodeSwitcher}`}>link</a>,
+            content: <>A word puzzle as a web app inspired by the popular {wordleLink} game.
+                    <div className="h-2" />
+                    <span className="italic">{reactLink}</span>   
+            </>
+        },
+        {
+            value: "messwaffles",
+            title: <>mess waffles website</>,
+            link: <></>,
+            content:
+                <>
+                    This was our final group project during CSCE 315/331.
+                    As a team of 5, using the Agile methodology, we developed a full stack Point of Sale system based on a restaurant called Mess Waffles.
+                    I was the primary backend lead, working on the database and API.
+                    Unfortunately, the database has been cleared by A&M and is no longer available, so the site no longer works as intended.
+                    However, this project taught me a lot about Agile, effective teamwork, and clear communication to resolve issues.
+                    If you'd still like to view the frontend, you can do so <a href="http://messwafflespos.onrender.com/" target="_blank" className={`underline ${darkmodeSwitcher}`}>here</a>.
+                    <div className="h-2" />
+                    <span className="italic">{postgresLink} | {expressLink} | {reactLink}</span>
+                </>
+        },
+    ]
+
+    const games = [
         {
             value: "choredash",
             title: <>choredash | </>,
@@ -224,15 +252,9 @@ function App() {
                         <span className="italic">{pythonLink} | {nextcordLink} | {mysqlLink}</span>                        
                     </>
         },
-        {
-            value: "wordle",
-            title: <>wordle by hemanth | </>,
-            link: <a href="http://wordle-clone-5fbt.onrender.com/" target="_blank" className={`underline ${darkmodeSwitcher}`}>link</a>,
-            content: <>A word puzzle as a web app inspired by the popular {wordleLink} game.
-                    <div className="h-2" />
-                    <span className="italic">{reactLink}</span>   
-            </>
-        },
+    ]
+
+    const other = [
         {
             value: "network",
             title: <>c++ network applications</>,
@@ -317,29 +339,16 @@ function App() {
 
                     </>
         },
-        {
-            value: "messwaffles",
-            title: <>mess waffles website</>,
-            link: <></>,
-            content:
-                <>
-                    This was our final group project during CSCE 315/331.
-                    As a team of 5, using the Agile methodology, we developed a full stack Point of Sale system based on a restaurant called Mess Waffles.
-                    I was the primary backend lead, working on the database and API.
-                    Unfortunately, the database has been cleared by A&M and is no longer available, so the site no longer works as intended.
-                    However, this project taught me a lot about Agile, effective teamwork, and clear communication to resolve issues.
-                    If you'd still like to view the frontend, you can do so <a href="http://messwafflespos.onrender.com/" target="_blank" className={`underline ${darkmodeSwitcher}`}>here</a>.
-                    <div className="h-2" />
-                    <span className="italic">{postgresLink} | {expressLink} | {reactLink}</span>
-                </>
-        },
     ];
 
     function expandAll() {
-        if (expandedItems.length === projects.length) {
+        if (expandedItems.length === websites.length + games.length + other.length) {
             setExpandedItems([]);
         } else {
-            setExpandedItems(projects.map(project => project.value));
+            const websitesItems = websites.map(website => website.value);
+            const gamesItems = games.map(game => game.value);
+            const otherItems = other.map(other => other.value);
+            setExpandedItems([...websitesItems, ...gamesItems, ...otherItems]);
         }
     }
 
@@ -367,12 +376,13 @@ function App() {
                 <div className="flex align-middle mb-3 sm:mb-4 mt-5 sm:mt-6">
                     <h3 className="font-bold text-xl sm:text-2xl font-heading">projects</h3>
                     <button onClick={expandAll} className={`ml-4 border-black border-2 rounded text-base px-2 ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>
-                        {expandedItems.length === projects.length ? "collapse all" : 
+                        {expandedItems.length === websites.length + games.length + other.length ? "collapse all" : 
                          expandedItems.length == 0 ? "expand all" : "expand rest"}
                     </button>
                 </div>
                 
                 <Accordion.Root value={expandedItems} type='multiple' className="flex flex-col gap-2 sm:gap-3">
+                    {/* <h1>test</h1>
                     {projects.map(project => (
                         <Project
                             value={project.value}
@@ -383,7 +393,47 @@ function App() {
                             setExpandedItems={setExpandedItems}
                             darkMode={darkMode}
                         />
+                    ))} */}                    
+
+                    <h1 className={`text-base sm:text-xl font-heading ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>websites</h1>
+                    {websites.map(project => (
+                        <Project
+                            value={project.value}
+                            project_title={project.title}
+                            project_link={project.link}
+                            content={project.content}
+                            expandedItems={expandedItems}
+                            setExpandedItems={setExpandedItems}
+                            darkMode={darkMode}
+                        />
                     ))}
+
+                    <h1 className={`text-base sm:text-xl font-heading ${darkMode ? 'text-neutral-400' : 'text-neutral-600'} mt-2`}>python</h1>
+                    {games.map(project => (
+                        <Project
+                            value={project.value}
+                            project_title={project.title}
+                            project_link={project.link}
+                            content={project.content}
+                            expandedItems={expandedItems}
+                            setExpandedItems={setExpandedItems}
+                            darkMode={darkMode}
+                        />
+                    ))}
+
+                    <h1 className={`text-base sm:text-xl font-heading ${darkMode ? 'text-neutral-400' : 'text-neutral-600'} mt-2`}>c++</h1>
+                    {other.map(project => (
+                        <Project
+                            value={project.value}
+                            project_title={project.title}
+                            project_link={project.link}
+                            content={project.content}
+                            expandedItems={expandedItems}
+                            setExpandedItems={setExpandedItems}
+                            darkMode={darkMode}
+                        />
+                    ))}
+
                 </Accordion.Root>
             </div>
 
