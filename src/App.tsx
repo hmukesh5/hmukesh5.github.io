@@ -210,16 +210,15 @@ function App() {
         },
         {
             value: "messwaffles",
-            title: <>mess waffles website</>,
-            link: <></>,
+            title: <>mess waffles | </>,
+            link: <a href="http://messwafflespos.onrender.com/" target="_blank" className={`underline ${darkmodeSwitcher}`}>link</a>,
             content:
                 <>
                     This was our final group project during CSCE 315/331.
                     As a team of 5, using the Agile methodology, we developed a full stack Point of Sale system based on a restaurant called Mess Waffles.
-                    I was the primary backend lead, working on the database and API.
-                    Unfortunately, the database has been cleared by A&M and is no longer available, so the site no longer works as intended.
+                    I was the primary backend lead, spearheading development of the database and API.
+                    Unfortunately the database has been deleted, so the site no longer works as intended.
                     However, this project taught me a lot about Agile, effective teamwork, and clear communication to resolve issues.
-                    If you'd still like to view the frontend, you can do so <a href="http://messwafflespos.onrender.com/" target="_blank" className={`underline ${darkmodeSwitcher}`}>here</a>.
                     <div className="h-2" />
                     <span className="italic">{postgresLink} | {expressLink} | {reactLink}</span>
                 </>
@@ -381,19 +380,7 @@ function App() {
                     </button>
                 </div>
                 
-                <Accordion.Root value={expandedItems} type='multiple' className="flex flex-col gap-2 sm:gap-3">
-                    {/* <h1>test</h1>
-                    {projects.map(project => (
-                        <Project
-                            value={project.value}
-                            project_title={project.title}
-                            project_link={project.link}
-                            content={project.content}
-                            expandedItems={expandedItems}
-                            setExpandedItems={setExpandedItems}
-                            darkMode={darkMode}
-                        />
-                    ))} */}                    
+                <Accordion.Root value={expandedItems} type='multiple' className="flex flex-col gap-2 sm:gap-3">          
 
                     <h1 className={`text-base sm:text-xl font-heading ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>websites</h1>
                     {websites.map(project => (
