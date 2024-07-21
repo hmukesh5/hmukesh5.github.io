@@ -63,6 +63,11 @@ function App() {
     const cppLink = <a href="https://isocpp.org/" className={`underline ${darkmodeSwitcher}`} target="_blank">C++</a>;
     const postgresLink = <a href="https://www.postgresql.org/" className={`underline ${darkmodeSwitcher}`} target="_blank">PostgreSQL</a>;
 
+    const gymLink = <a href="https://gymnasium.farama.org/index.html" className={`underline ${darkmodeSwitcher}`} target="_blank">OpenAI Gymnasium</a>;
+    const sb3Link = <a href="https://github.com/DLR-RM/stable-baselines3" className={`underline ${darkmodeSwitcher}`} target="_blank">Stable Baselines 3</a>;
+    const colabLink = <a href="https://colab.google/" className={`underline ${darkmodeSwitcher}`} target="_blank">Google Colab</a>;
+    const pytorchLink = <a href="https://pytorch.org/" className={`underline ${darkmodeSwitcher}`} target="_blank">PyTorch</a>;
+
     const handleDNSLookupSubmit = async () => {
         try {
             const dns_input = document.getElementById("dnslookuptext") as HTMLInputElement;
@@ -225,6 +230,20 @@ function App() {
         },
     ]
 
+    const ai = [
+        {
+            value: "dinoai",
+            title: <>dino ai | </>,
+            link: <a href="https://github.com/hmukesh5/dino-ai" target="_blank" className={`underline ${darkmodeSwitcher}`}>github</a>,
+            content: <>
+                Developing an AI model that can play the chrome://dino game through {pytorchLink} libraries. Currently a WIP.
+                <div className="h-2" />
+                <span className="italic">{gymLink} | {sb3Link} | {colabLink}</span>
+            </>
+                    
+        }
+    ]
+
     const games = [
         {
             value: "choredash",
@@ -341,13 +360,14 @@ function App() {
     ];
 
     function expandAll() {
-        if (expandedItems.length === websites.length + games.length + other.length) {
+        if (expandedItems.length === websites.length + games.length + other.length + ai.length) {
             setExpandedItems([]);
         } else {
             const websitesItems = websites.map(website => website.value);
             const gamesItems = games.map(game => game.value);
             const otherItems = other.map(other => other.value);
-            setExpandedItems([...websitesItems, ...gamesItems, ...otherItems]);
+            const aiItems = ai.map(ai => ai.value);
+            setExpandedItems([...websitesItems, ...gamesItems, ...otherItems, ...aiItems]);
         }
     }
 
@@ -375,7 +395,7 @@ function App() {
                 <div className="flex align-middle mb-3 sm:mb-4 mt-5 sm:mt-6">
                     <h3 className="font-bold text-xl sm:text-2xl font-heading">projects</h3>
                     <button onClick={expandAll} className={`ml-4 border-black border-2 rounded text-base px-2 ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>
-                        {expandedItems.length === websites.length + games.length + other.length ? "collapse all" : 
+                        {expandedItems.length === websites.length + games.length + other.length + ai.length ? "collapse all" : 
                          expandedItems.length == 0 ? "expand all" : "expand rest"}
                     </button>
                 </div>
@@ -384,6 +404,19 @@ function App() {
 
                     <h1 className={`text-base sm:text-xl font-heading ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>websites</h1>
                     {websites.map(project => (
+                        <Project
+                            value={project.value}
+                            project_title={project.title}
+                            project_link={project.link}
+                            content={project.content}
+                            expandedItems={expandedItems}
+                            setExpandedItems={setExpandedItems}
+                            darkMode={darkMode}
+                        />
+                    ))}
+
+                    <h1 className={`text-base sm:text-xl font-heading ${darkMode ? 'text-neutral-400' : 'text-neutral-600'} mt-2`}>ai</h1>
+                    {ai.map(project => (
                         <Project
                             value={project.value}
                             project_title={project.title}
