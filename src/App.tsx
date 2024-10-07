@@ -375,7 +375,7 @@ function App() {
         <div className="min-h-screen max-w-4xl mx-auto py-6 sm:py-8 px-4 sm:px-6">
 
             <div className="mb-4">
-                <p className="font-semibold text-4xl sm:text-5xl font-heading">Hemanth Mukesh</p>                
+                <p className="font-semibold text-4xl sm:text-5xl font-heading tracking-tight sm:tracking-normal">Hemanth Mukesh</p>                
             </div>
 
             <div className="mt-5 mb-5 sm:mt-6 sm:mb-6 flex justify-between w-16 sm:w-24 items-center">
