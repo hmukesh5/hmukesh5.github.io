@@ -102,9 +102,9 @@ function App() {
         } catch (error) {
             console.error('Error:', error);
             if (error.name === 'AbortError') {
-                setDNSLookupResult('request timed out, is the server online?');
+                setDNSLookupResult('this took longer than I expected (10 seconds) - either your internet isn\'t good or the server might not be working right now. sorry!');
             } else {
-                setDNSLookupResult('an error occurred, please try again.');
+                setTCPAppResult('an unknown error occurred, what the **** did you do ???');
             }
             setDNSLookupDisable(false);
         }
@@ -141,9 +141,9 @@ function App() {
         } catch (error) {
             console.error('Error:', error);
             if (error.name === 'AbortError') {
-                setHTTPAppResult('request timed out, is the server online?');
+                setHTTPAppResult('this took longer than I expected (10 seconds) - either your internet isn\'t good or the server might not be working right now. sorry!');
             } else {
-                setHTTPAppResult('an error occurred, please try again.');
+                setTCPAppResult('an unknown error occurred, what the **** did you do ???');
             }
             setHTTPAppDisable(false);
         }
@@ -156,7 +156,7 @@ function App() {
             const tcp_query_forward = tcp_input_forward.value;
             const tcp_query_reverse = tcp_input_reverse.value;
             
-            setTCPAppResult("running... (this can take a while with large packet loss)");
+            setTCPAppResult("running... (this will take a while)");
             setTCPOutputExpand(true);
             setTCPAppDisable(true);
             console.log(JSON.stringify(
@@ -167,7 +167,7 @@ function App() {
             
             const controller = new AbortController();
             const signal = controller.signal;
-            const timeoutID = setTimeout(() => controller.abort(), 10000);
+            const timeoutID = setTimeout(() => controller.abort(), 50000);
 
             const response = await fetch('https://cloudwindows.hmukesh.me/tcp_app', {
                 method: 'POST',
@@ -190,9 +190,9 @@ function App() {
         } catch (error) {
             console.error('Error:', error);
             if (error.name === 'AbortError') {
-                setTCPAppResult('request timed out, is the server online?');
+                setTCPAppResult('this took longer than I expected (50 seconds) - either your internet isn\'t good or the server might not be working right now. sorry!');
             } else {
-                setTCPAppResult('an error occurred, please try again.');
+                setTCPAppResult('an unknown error occurred, what the **** did you do ???');
             }
             setTCPAppDisable(false);
         }
@@ -285,8 +285,8 @@ function App() {
             link: <></>,
             content:<>
                         During my networks class at A&M (CSCE 463), I created a suite of various network applications.
-                        Below, I have included demonstrations of 3 of these programs.
-                        Feel free to try them out!
+                        I have created demonstrations of 3 of these programs that will run the software on the cloud.
+                        Feel free to try them out below!
                         <div className="h-2" />
                         <span className="italic">{cppLink} | {awsec2Link}</span>
                         <br/><br/>
@@ -317,9 +317,10 @@ function App() {
                         <div className="mt-4">
                             <span className="font-heading tracking-tighter sm:tracking-normal font-bold">HTTP Packet Sender and Parser:</span>
                             <p className="mb-2">
-                                A HTTP Packet sender and parser that validates, sends, and parses HTTP packets, displaying details about the entire process (including a DNS lookup, shown above).
-                                One of the key features is that it can parse through the HTTP reply and extract the number of outgoing links, laying the foundation for a web crawler.
-                                Try typing in "http://google.com" to see the HTTP response from the home page of Google.
+                                An application that processes HTTP packets (including performing a DNS lookup, shown above).
+                                It can extract the number of all outgoing links from a website, laying the foundation for a web crawler.
+                                <br/>
+                                <span className="italic">Note: HTTPS is not supported, and most HTTP requests (such as "http://google.com") will return a <span className="line-through">boring </span> redirect to the HTTPS version. Try "http://captive.apple.com" for a successful HTTP response.</span>
                             </p>
                             
                             <span className='font-heading tracking-tighter sm:tracking-normal'>URL:</span>
@@ -339,12 +340,12 @@ function App() {
                         <div className="mt-4">
                             <span className="font-heading tracking-tighter sm:tracking-normal font-bold">TCP Demonstration:</span>
                             <p className="mb-2">
-                                TCP stands for Transmission Control Protocol, and it's widely used for reliable data transfer.
-                                Although not fast enough for videos or games, this protocol ensures that all packets are delivered by re-transmitting lost packets.
-                                Below, you can edit the forward and reverse loss rate of a TCP transfer and observe the effects.
-                                Input 2 numbers between 0 and 1.
+                                TCP, or Transmission Control Protocol, is widely used for data transfer between two Internet users.
+                                It resends any data that may be lost in the transmission, ensuring reliability.
+                                Below, you can edit the loss rates of a TCP transfer between two users, and observe the effects.
+                                Forward loss is between user 1 to user 2, and reverse loss is between user 2 to user 1.
+                                Input 2 numbers between 0 and 1, where 0 is 0% loss and 1 is 100% loss.
                             </p>
-                            
                             <span className='font-heading tracking-tighter sm:tracking-normal'>Loss Rate:</span>
                             <div>
                                 <input id="forwardloss" type="number" name="query" placeholder='forward loss' className={`font-heading tracking-tighter sm:tracking-normal mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-32 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
