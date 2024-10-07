@@ -14,10 +14,13 @@ function App() {
     const [expandedItems, setExpandedItems] = useState<string[]>([]);
     const [dnsLookupResult, setDNSLookupResult] = useState<string>("");
     const [dnsLookupDisable, setDNSLookupDisable] = useState<boolean>(false);
+    const [dnsOutputExpand, setDNSOutputExpand] = useState<boolean>(false);
     const [HTTPAppResult, setHTTPAppResult] = useState<string>("");
     const [HTTPAppDisable, setHTTPAppDisable] = useState<boolean>(false);
+    const [HTTPOutputExpand, setHTTPOutputExpand] = useState<boolean>(false);
     const [TCPAppResult, setTCPAppResult] = useState<string>("");
     const [TCPAppDisable, setTCPAppDisable] = useState<boolean>(false);
+    const [TCPOutputExpand, setTCPOutputExpand] = useState<boolean>(false);
     const [serverstatus, setServerStatus] = useState<string>("...");
     const [statusclass, setStatusClass] = useState<string>("");
 
@@ -63,7 +66,6 @@ function App() {
     const pythonLink = <a href="https://www.python.org/" className={`underline ${darkmodeSwitcher}`} target="_blank">Python</a>;
     const cppLink = <a href="https://isocpp.org/" className={`underline ${darkmodeSwitcher}`} target="_blank">C++</a>;
     const postgresLink = <a href="https://www.postgresql.org/" className={`underline ${darkmodeSwitcher}`} target="_blank">PostgreSQL</a>;
-
     const gymLink = <a href="https://gymnasium.farama.org/index.html" className={`underline ${darkmodeSwitcher}`} target="_blank">OpenAI Gymnasium</a>;
     const sb3Link = <a href="https://github.com/DLR-RM/stable-baselines3" className={`underline ${darkmodeSwitcher}`} target="_blank">Stable Baselines 3</a>;
     const colabLink = <a href="https://colab.google/" className={`underline ${darkmodeSwitcher}`} target="_blank">Google Colab</a>;
@@ -76,6 +78,7 @@ function App() {
             
             setDNSLookupResult("running...");
             setDNSLookupDisable(true);
+            setDNSOutputExpand(true);
             console.log(JSON.stringify({query: dns_query}));
             
             const controller = new AbortController();
@@ -114,6 +117,7 @@ function App() {
             
             setHTTPAppResult("running...");
             setHTTPAppDisable(true);
+            setHTTPOutputExpand(true);
             console.log(JSON.stringify({query: http_query}));
             
             const controller = new AbortController();
@@ -153,6 +157,7 @@ function App() {
             const tcp_query_reverse = tcp_input_reverse.value;
             
             setTCPAppResult("running... (this can take a while with large packet loss)");
+            setTCPOutputExpand(true);
             setTCPAppDisable(true);
             console.log(JSON.stringify(
                 {
@@ -251,7 +256,7 @@ function App() {
             title: <>choredash | </>,
             link: <a href="https://hmukesh.itch.io/chore-dash" target="_blank" className={`underline ${darkmodeSwitcher}`}>homepage</a>,
             content:<>
-                        <span className="font-bold text-amber-600"> <img src={trophysvg} className="inline align-middle h-4 relative svg-bottom-align mr-0.5" /> 1st place at the 2023 Capsher x Aggie Coding Club Coding Challenge</span>
+                        <span className="font-normal sm:font-bold text-amber-600"> <img src={trophysvg} className="inline align-middle h-4 relative svg-bottom-align mr-0.5" /> 1st place at the 2023 Capsher x Aggie Coding Club Coding Challenge</span>
                         <br/>
                         A short, replayable 2D game where you control a character who must rush to complete chores before their mom comes home.
                         Built with {paytonLink} and {adnanLink}. Available for download on {choredashLink}.
@@ -264,7 +269,7 @@ function App() {
             title: <>jerma985 discord bot | </>,
             link: <a href="https://youtube.com/watch?v=gCIfvgX4Vg4" target="_blank" className={`underline ${darkmodeSwitcher}`}>demo</a>,
             content:<>
-                        <span className="font-bold text-amber-600"> <img src={trophysvg} className="inline align-middle h-4 relative svg-bottom-align mr-0.5" /> 1st place at the 2022 Aggie Coding Club Discord Bot Challenge</span>    
+                        <span className="font-normal sm:font-bold text-amber-600"> <img src={trophysvg} className="inline align-middle h-4 relative svg-bottom-align mr-0.5" /> 1st place at the 2022 Aggie Coding Club Discord Bot Challenge</span>    
                         <br/>
                         A Discord bot based on the popular Twitch streamer Jerma985. Built with {paytonLink}.
                         <div className="h-2" />
@@ -290,9 +295,8 @@ function App() {
                         <span className="font-heading tracking-tighter sm:tracking-normal font-bold">DNS Lookup:</span>
                         <br/>
                         <p className="mb-2">
-                            DNS stands for Domain Name Service.
-                            It allows applications to lookup the IP addresses of domains like "youtube.com" so that it can connect to YouTube's servers.
-                            Below, you can lookup those IP addresses yourself on {googleDNSLink}.
+                            DNS, or Domain Name Service, allows computers to lookup the IP address of a domain name. It's kinda like Google Maps for computers.
+                            Below, you can try it yourself on {googleDNSLink}.
                             Try typing in "google.com", or this website, "hmukesh.me".
                         </p>
                         <div className="font-heading tracking-tighter sm:tracking-normal">
@@ -303,7 +307,7 @@ function App() {
                             </div>
                             <span className='font-heading tracking-tighter sm:tracking-normal'>Output:</span>
                             <br/>
-                            <textarea className={`font-heading tracking-tighter sm:tracking-normal mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
+                            <textarea className={`font-heading tracking-tighter sm:tracking-normal mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''} ${dnsOutputExpand ? 'h-80': 'h-8'} `} readOnly
                                 placeholder='output will appear here...'
                                 value={dnsLookupResult}
                             >
@@ -325,7 +329,7 @@ function App() {
                             </div>
                             <span className='font-heading tracking-tighter sm:tracking-normal'>Output:</span>
                             <br/>
-                            <textarea className={`font-heading tracking-tighter sm:tracking-normal mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
+                            <textarea className={`font-heading tracking-tighter sm:tracking-normal mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''} ${HTTPOutputExpand ? 'h-80': 'h-8'} `} readOnly
                                 placeholder='output will appear here...'
                                 value={HTTPAppResult}
                             >
@@ -349,7 +353,7 @@ function App() {
                             </div>
                             <span className='font-heading tracking-tighter sm:tracking-normal'>Output:</span>
                             <br/>
-                            <textarea className={`font-heading tracking-tighter sm:tracking-normal mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
+                            <textarea className={`font-heading tracking-tighter sm:tracking-normal mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''} ${TCPOutputExpand ? 'h-80': 'h-8'} `} readOnly
                                 placeholder='output will appear here...'
                                 value={TCPAppResult}
                             >
