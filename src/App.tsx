@@ -286,7 +286,7 @@ function App() {
                         <br/><br/>
                         Server Status: <span className={`font-bold ${statusclass}`}>{serverstatus}</span>
                         <div className="mt-8" />
-                        <span className="font-heading tracking-tight sm:tracking-normal font-bold">DNS Lookup:</span>
+                        <span className="font-heading tracking-tighter sm:tracking-normal font-bold">DNS Lookup:</span>
                         <br/>
                         <p className="mb-2">
                             DNS stands for Domain Name Service.
@@ -294,15 +294,15 @@ function App() {
                             Below, you can lookup those IP addresses yourself on {googleDNSLink}.
                             Try typing in "google.com", or this website, "hmukesh.me".
                         </p>
-                        <div className="font-heading tracking-tight sm:tracking-normal">
-                            <span className='font-heading tracking-tight sm:tracking-normal'>Domain/IP:</span>
+                        <div className="font-heading tracking-tighter sm:tracking-normal">
+                            <span className='font-heading tracking-tighter sm:tracking-normal'>Domain/IP:</span>
                             <div>
-                                <input id="dnslookuptext" type="text" name="query" placeholder='ex "google.com"' className={`font-heading tracking-tight sm:tracking-normal mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                                <input id="dnslookuptext" type="text" name="query" placeholder='ex "google.com"' className={`font-heading tracking-tighter sm:tracking-normal mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
                                 <button disabled={dnsLookupDisable} onClick={handleDNSLookupSubmit} className={`mt-2 px-2 border-2 border-black rounded sm:text-sm text-xs ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
                             </div>
-                            <span className='font-heading tracking-tight sm:tracking-normal'>Output:</span>
+                            <span className='font-heading tracking-tighter sm:tracking-normal'>Output:</span>
                             <br/>
-                            <textarea className={`font-heading tracking-tight sm:tracking-normal mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
+                            <textarea className={`font-heading tracking-tighter sm:tracking-normal mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
                                 placeholder='output will appear here...'
                                 value={dnsLookupResult}
                             >
@@ -310,21 +310,21 @@ function App() {
                         </div>
 
                         <div className="mt-4">
-                            <span className="font-heading tracking-tight sm:tracking-normal font-bold">HTTP Packet Sender and Parser:</span>
+                            <span className="font-heading tracking-tighter sm:tracking-normal font-bold">HTTP Packet Sender and Parser:</span>
                             <p className="mb-2">
                                 A HTTP Packet sender and parser that validates, sends, and parses HTTP packets, displaying details about the entire process (including a DNS lookup, shown above).
                                 One of the key features is that it can parse through the HTTP reply and extract the number of outgoing links, laying the foundation for a web crawler.
                                 Try typing in "http://google.com" to see the HTTP response from the home page of Google.
                             </p>
                             
-                            <span className='font-heading tracking-tight sm:tracking-normal'>URL:</span>
+                            <span className='font-heading tracking-tighter sm:tracking-normal'>URL:</span>
                             <div>
-                                <input id="httpapptext" type="text" name="query" placeholder='ex "http://google.com"' className={`font-heading tracking-tight sm:tracking-normal mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                                <input id="httpapptext" type="text" name="query" placeholder='ex "http://google.com"' className={`font-heading tracking-tighter sm:tracking-normal mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-64 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
                                 <button disabled={HTTPAppDisable} onClick={handleHTTPSubmit} className={`mt-2 px-2 border-2 border-black rounded sm:text-sm text-xs ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
                             </div>
-                            <span className='font-heading tracking-tight sm:tracking-normal'>Output:</span>
+                            <span className='font-heading tracking-tighter sm:tracking-normal'>Output:</span>
                             <br/>
-                            <textarea className={`font-heading tracking-tight sm:tracking-normal mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
+                            <textarea className={`font-heading tracking-tighter sm:tracking-normal mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
                                 placeholder='output will appear here...'
                                 value={HTTPAppResult}
                             >
@@ -332,7 +332,7 @@ function App() {
                         </div>
 
                         <div className="mt-4">
-                            <span className="font-heading tracking-tight sm:tracking-normal font-bold">TCP Demonstration:</span>
+                            <span className="font-heading tracking-tighter sm:tracking-normal font-bold">TCP Demonstration:</span>
                             <p className="mb-2">
                                 TCP stands for Transmission Control Protocol, and it's widely used for reliable data transfer.
                                 Although not fast enough for videos or games, this protocol ensures that all packets are delivered by re-transmitting lost packets.
@@ -340,15 +340,15 @@ function App() {
                                 Input 2 numbers between 0 and 1.
                             </p>
                             
-                            <span className='font-heading tracking-tight sm:tracking-normal'>Loss Rate:</span>
+                            <span className='font-heading tracking-tighter sm:tracking-normal'>Loss Rate:</span>
                             <div>
-                                <input id="forwardloss" type="number" name="query" placeholder='forward loss' className={`font-heading tracking-tight sm:tracking-normal mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-32 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
-                                <input id="reverseloss" type="number" name="query" placeholder='reverse loss' className={`font-heading tracking-tight sm:tracking-normal mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-32 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                                <input id="forwardloss" type="number" name="query" placeholder='forward loss' className={`font-heading tracking-tighter sm:tracking-normal mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-32 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
+                                <input id="reverseloss" type="number" name="query" placeholder='reverse loss' className={`font-heading tracking-tighter sm:tracking-normal mt-2 mb-2 mr-2 px-2 border-2 border-neutral-500 rounded w-32 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} />
                                 <button disabled={TCPAppDisable} onClick={handleTCPSubmit} className={`mt-2 px-2 border-2 border-black rounded sm:text-sm text-xs ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>run</button>
                             </div>
-                            <span className='font-heading tracking-tight sm:tracking-normal'>Output:</span>
+                            <span className='font-heading tracking-tighter sm:tracking-normal'>Output:</span>
                             <br/>
-                            <textarea className={`font-heading tracking-tight sm:tracking-normal mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
+                            <textarea className={`font-heading tracking-tighter sm:tracking-normal mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''}`} readOnly
                                 placeholder='output will appear here...'
                                 value={TCPAppResult}
                             >
@@ -375,7 +375,7 @@ function App() {
         <div className="min-h-screen max-w-4xl mx-auto py-6 sm:py-8 px-4 sm:px-6">
 
             <div className="mb-4">
-                <p className="font-semibold text-4xl sm:text-5xl font-heading tracking-tight sm:tracking-normal">Hemanth Mukesh</p>                
+                <p className="font-semibold text-4xl sm:text-5xl font-heading tracking-tighter sm:tracking-normal">Hemanth Mukesh</p>                
             </div>
 
             <div className="mt-5 mb-5 sm:mt-6 sm:mb-6 flex justify-between w-16 sm:w-24 items-center">
@@ -383,7 +383,7 @@ function App() {
                 <a className={darkMode ? "invert" : ""} href="https://github.com/hmukesh5" target="_blank"><img src={github} className="w-6 sm:w-8"></img></a>
             </div>
 
-            <h3 className="font-bold text-xl sm:text-2xl font-heading tracking-tight sm:tracking-normal mb-1 sm:mb-2">about</h3>
+            <h3 className="font-bold text-xl sm:text-2xl font-heading tracking-tighter sm:tracking-normal mb-1 sm:mb-2">about</h3>
             <div className="mb-3 text-base sm:text-xl font-body">
                 <p>Hello! My name is Hemanth Mukesh, and I'm a computer science senior at Texas A&M University. 
                    This website serves to showcase my work throughout college.
@@ -393,7 +393,7 @@ function App() {
 
             <div className="max-w-fit">
                 <div className="flex align-middle mb-3 sm:mb-4 mt-5 sm:mt-6">
-                    <h3 className="font-bold text-xl sm:text-2xl font-heading tracking-tight sm:tracking-normal">projects</h3>
+                    <h3 className="font-bold text-xl sm:text-2xl font-heading tracking-tighter sm:tracking-normal">projects</h3>
                     <button onClick={expandAll} className={`ml-4 border-black border-2 rounded text-base px-2 ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>
                         {expandedItems.length === websites.length + games.length + other.length + ai.length ? "collapse all" : 
                          expandedItems.length == 0 ? "expand all" : "expand rest"}
@@ -402,7 +402,7 @@ function App() {
                 
                 <Accordion.Root value={expandedItems} type='multiple' className="flex flex-col gap-2 sm:gap-3">          
 
-                    <h1 className={`text-base sm:text-xl font-heading tracking-tight sm:tracking-normal ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>websites</h1>
+                    <h1 className={`text-base sm:text-xl font-heading tracking-tighter sm:tracking-normal ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>websites</h1>
                     {websites.map(project => (
                         <Project
                             value={project.value}
@@ -415,7 +415,7 @@ function App() {
                         />
                     ))}
 
-                    <h1 className={`text-base sm:text-xl font-heading tracking-tight sm:tracking-normal ${darkMode ? 'text-neutral-400' : 'text-neutral-600'} mt-2`}>ai</h1>
+                    <h1 className={`text-base sm:text-xl font-heading tracking-tighter sm:tracking-normal ${darkMode ? 'text-neutral-400' : 'text-neutral-600'} mt-2`}>ai</h1>
                     {ai.map(project => (
                         <Project
                             value={project.value}
@@ -428,7 +428,7 @@ function App() {
                         />
                     ))}
 
-                    <h1 className={`text-base sm:text-xl font-heading tracking-tight sm:tracking-normal ${darkMode ? 'text-neutral-400' : 'text-neutral-600'} mt-2`}>python</h1>
+                    <h1 className={`text-base sm:text-xl font-heading tracking-tighter sm:tracking-normal ${darkMode ? 'text-neutral-400' : 'text-neutral-600'} mt-2`}>python</h1>
                     {games.map(project => (
                         <Project
                             value={project.value}
@@ -441,7 +441,7 @@ function App() {
                         />
                     ))}
 
-                    <h1 className={`text-base sm:text-xl font-heading tracking-tight sm:tracking-normal ${darkMode ? 'text-neutral-400' : 'text-neutral-600'} mt-2`}>c++</h1>
+                    <h1 className={`text-base sm:text-xl font-heading tracking-tighter sm:tracking-normal ${darkMode ? 'text-neutral-400' : 'text-neutral-600'} mt-2`}>c++</h1>
                     {other.map(project => (
                         <Project
                             value={project.value}
@@ -459,7 +459,7 @@ function App() {
 
             <br/>
             <div className="flex items-center">
-                <p className="font-heading tracking-tight sm:tracking-normal text-base sm:text-lg mr-3 inline align-top">dark mode</p>
+                <p className="font-heading tracking-tighter sm:tracking-normal text-base sm:text-lg mr-3 inline align-top">dark mode</p>
                 
                 <Switch.Root className="SwitchRoot align-center" id="airplane-mode" checked={darkMode} onCheckedChange={(checked) => {
                     setDarkMode(checked);
