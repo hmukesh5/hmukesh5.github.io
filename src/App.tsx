@@ -250,7 +250,7 @@ function App() {
             title: <>choredash | </>,
             link: <a href="https://hmukesh.itch.io/chore-dash" target="_blank" className={`underline ${darkmodeSwitcher}`}>homepage</a>,
             content:<>
-                        <span className="font-bold text-amber-600"> <span className="text-base">🏆</span> Capsher x Aggie Coding Club Coding Challenge 2023 1st place winner</span>
+                        <span className="font-bold text-amber-600"> Capsher x Aggie Coding Club Coding Challenge 2023 1st place winner</span>
                         <br/>
                         A short, replayable 2D game where you control a character who must rush to complete chores before their mom comes home.
                         Built with {paytonLink} and {adnanLink}. Available for download on {choredashLink}.
@@ -263,7 +263,7 @@ function App() {
             title: <>jerma985 discord bot | </>,
             link: <a href="https://youtube.com/watch?v=gCIfvgX4Vg4" target="_blank" className={`underline ${darkmodeSwitcher}`}>demo</a>,
             content:<>
-                        <span className="font-bold text-amber-600"> <span className="text-base">🏆</span> Aggie Coding Club Discord Bot Challenge 2022 1st place winner</span>    
+                        <span className="font-bold text-amber-600"> Aggie Coding Club Discord Bot Challenge 2022 1st place winner</span>    
                         <br/>
                         A Discord bot based on the popular Twitch streamer Jerma985. Built with {paytonLink}.
                         <div className="h-2" />
