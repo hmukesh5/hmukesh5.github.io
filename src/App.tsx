@@ -214,7 +214,7 @@ function App() {
             value: "wordle",
             title: <>wordle by hemanth | </>,
             link: <a href="http://wordle-clone-5fbt.onrender.com/" target="_blank" className={`underline ${darkmodeSwitcher}`}>link</a>,
-            content: <>A word puzzle as a web app inspired by the popular {wordleLink} game.
+            content: <>A word puzzle as a web app - a replica of the popular {wordleLink} game.
                     <div className="h-2" />
                     <span className="italic">{reactLink}</span>   
             </>
@@ -225,11 +225,11 @@ function App() {
             link: <a href="http://messwafflespos.onrender.com/" target="_blank" className={`underline ${darkmodeSwitcher}`}>link</a>,
             content:
                 <>
-                    This was our final group project during CSCE 315/331.
-                    As a team of 5, using the Agile methodology, we developed a full stack Point of Sale system based on a restaurant called Mess Waffles.
-                    I was the primary backend lead, spearheading development of the database and API.
-                    Unfortunately the database has been deleted, so the site no longer works as intended.
-                    However, this project taught me a lot about Agile, effective teamwork, and clear communication to resolve issues.
+                    As a team of 5 during CSCE 315/331, with the Agile methodology, we created a full stack website based on a restaurant called Mess Waffles.
+                    It provides ordering and tracking capabilities for employees, and a menu for customers.
+                    I was the primary backend lead, spearheading the database (which unfortunately has been deleted by A&M) and API.
+                    For most of us, it was our first time using this tech stack, so the website is not super aesthetic LOL.
+                    However, it taught us a lot about creating a website, and how to code as a team in Agile.
                     <div className="h-2" />
                     <span className="italic">{postgresLink} | {expressLink} | {reactLink}</span>
                 </>
