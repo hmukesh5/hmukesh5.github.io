@@ -108,7 +108,7 @@ function App() {
             if (error.name === 'AbortError') {
                 setDNSLookupResult('this took longer than I expected (10 seconds) - either your internet isn\'t good or the server might not be working right now. sorry!');
             } else {
-                setTCPAppResult('an unknown error occurred, what the **** did you do ???');
+                setDNSLookupResult('an unknown error occurred, what the **** did you do ???');
             }
             setDNSLookupDisable(false);
         }
@@ -147,7 +147,7 @@ function App() {
             if (error.name === 'AbortError') {
                 setHTTPAppResult('this took longer than I expected (10 seconds) - either your internet isn\'t good or the server might not be working right now. sorry!');
             } else {
-                setTCPAppResult('an unknown error occurred, what the **** did you do ???');
+                setHTTPAppResult('an unknown error occurred, what the **** did you do ???');
             }
             setHTTPAppDisable(false);
         }
@@ -373,7 +373,7 @@ function App() {
                             </div>
                             <span className='font-heading tracking-tighter sm:tracking-normal'>Output:</span>
                             <br/>
-                            <textarea className={`font-heading tracking-tighter sm:tracking-normal mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full h-80 sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''} ${TCPOutputExpand ? 'h-80': 'h-8'} `} readOnly
+                            <textarea className={`font-heading tracking-tighter sm:tracking-normal mt-2 px-2 py-1 border-2 border-neutral-500 rounded w-full sm:text-sm text-xs ${darkMode ? 'bg-neutral-900' : ''} ${TCPOutputExpand ? 'h-80': 'h-8'} `} readOnly
                                 placeholder='output will appear here...'
                                 value={TCPAppResult}
                             >
