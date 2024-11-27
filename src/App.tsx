@@ -205,14 +205,14 @@ function App() {
     const research = [
         {
             value: "graphblas",
-            title: <>lagraph</>,
+            title: <>graphBLAS</>,
             link: <></>,
             content: <>
                 Currently, I'm doing research at Texas A&M in {lagraphlink}, which is a library of user-friendly graph algorithms built on top of {suitesparselink}, which is a C implementation of {graphblaslink}, which is a standard that defines a set of sparse matrix operations.
                 Go ahead and re-read that.
                 These matrix operations, when performed on adjacency matrices, can be a parallel approach to computing graph algorithms.
                 I am developing an algorithm in LAGraph for graph coloring, where a graph is colored such that no 2 nodes share the same color.
-                This research is being developed through the {urslink} (2024-2025 cohort), and a paper and a presentation will be available in Spring 2025.
+                This research is being done through the {urslink} (2024-2025 cohort), and a paper and presentation will be available in spring 2025.
                 <div className="h-2" />
                 <span className="italic">{lagraphlink} | {suitesparselink}</span> 
             </>
@@ -226,6 +226,8 @@ function App() {
             link: <></>,
             content: <>
                         The website you are currently viewing!
+                        I wanted a minimalistic look that would look good on mobile and web, and I wanted it to reflect my projects - like an online resume.
+                        I'm super proud of this, and I hope it inspires other CS students to go out there and create!
                         <div className="h-2" />
                         <span className="italic">{reactLink} | {expressLink} | {awsec2Link}</span>
                     </>
