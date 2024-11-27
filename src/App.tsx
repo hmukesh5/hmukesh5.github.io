@@ -70,6 +70,10 @@ function App() {
     const sb3Link = <a href="https://github.com/DLR-RM/stable-baselines3" className={`underline ${darkmodeSwitcher}`} target="_blank">Stable Baselines 3</a>;
     const colabLink = <a href="https://colab.google/" className={`underline ${darkmodeSwitcher}`} target="_blank">Google Colab</a>;
     const pytorchLink = <a href="https://pytorch.org/" className={`underline ${darkmodeSwitcher}`} target="_blank">PyTorch</a>;
+    const lagraphlink = <a href="https://github.com/GraphBLAS/LaGraph" className={`underline ${darkmodeSwitcher}`} target="_blank">LAGraph</a>;
+    const suitesparselink = <a href="https://people.engr.tamu.edu/davis/GraphBLAS.html" className={`underline ${darkmodeSwitcher}`} target="_blank">SuiteSparse:GraphBLAS</a>;
+    const graphblaslink = <a href="https://graphblas.org/" className={`underline ${darkmodeSwitcher}`} target="_blank">GraphBLAS</a>;
+    const urslink = <a href="https://launch.tamu.edu/undergraduate-research/urs" className={`underline ${darkmodeSwitcher}`} target="_blank">URS program</a>;
 
     const handleDNSLookupSubmit = async () => {
         try {
@@ -197,6 +201,21 @@ function App() {
             setTCPAppDisable(false);
         }
     };
+
+    const research = [
+        {
+            value: "graphblas",
+            title: <>lagraph</>,
+            link: <></>,
+            content: <>
+                Currently, I'm doing research at Texas A&M in {lagraphlink}, which is a library of user-friendly graph algorithms built on top of {suitesparselink}, which is an implementation of {graphblaslink}, which is a standard that defines a set of sparse matrix operations.
+                Go ahead and re-read that.
+                These matrix operations, when performed on adjacency matrices, is a parallel approach to computing graph algorithms.
+                I am developing an algorithm in LAGraph for graph coloring, where a graph is colored such that no 2 nodes share the same color.
+                This research is being developed through the {urslink} (2024-2025 cohort), and a paper and a presentation will be available in Spring 2025.
+            </>
+        }
+    ]
 
     const websites = [
         {
@@ -366,14 +385,15 @@ function App() {
     ];
 
     function expandAll() {
-        if (expandedItems.length === websites.length + games.length + other.length + ai.length) {
+        if (expandedItems.length === research.length + websites.length + games.length + other.length + ai.length) {
             setExpandedItems([]);
         } else {
+            const researchItems = research.map(research => research.value);
             const websitesItems = websites.map(website => website.value);
             const gamesItems = games.map(game => game.value);
             const otherItems = other.map(other => other.value);
             const aiItems = ai.map(ai => ai.value);
-            setExpandedItems([...websitesItems, ...gamesItems, ...otherItems, ...aiItems]);
+            setExpandedItems([...researchItems, ...websitesItems, ...gamesItems, ...otherItems, ...aiItems]);
         }
     }
 
@@ -401,13 +421,26 @@ function App() {
                 <div className="flex align-middle mb-3 sm:mb-4 mt-5 sm:mt-6">
                     <h3 className="font-bold text-xl sm:text-2xl font-heading tracking-tighter sm:tracking-normal">projects</h3>
                     <button onClick={expandAll} className={`ml-4 border-black border-2 rounded text-base px-2 ${darkMode ? 'border-neutral-200 hover:bg-neutral-200 hover:text-black' : 'border-neutral-900 hover:bg-neutral-900 hover:text-neutral-200'}`}>
-                        {expandedItems.length === websites.length + games.length + other.length + ai.length ? "collapse all" : 
+                        {expandedItems.length === research.length + websites.length + games.length + other.length + ai.length ? "collapse all" : 
                          expandedItems.length == 0 ? "expand all" : "expand rest"}
                     </button>
                 </div>
                 
                 <Accordion.Root value={expandedItems} type='multiple' className="flex flex-col gap-2 sm:gap-3">          
 
+                    <h1 className={`text-base sm:text-xl font-heading tracking-tighter sm:tracking-normal ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>research</h1>
+                    {research.map(project => (
+                        <Project
+                            value={project.value}
+                            project_title={project.title}
+                            project_link={project.link}
+                            content={project.content}
+                            expandedItems={expandedItems}
+                            setExpandedItems={setExpandedItems}
+                            darkMode={darkMode}
+                        />
+                    ))}
+                    
                     <h1 className={`text-base sm:text-xl font-heading tracking-tighter sm:tracking-normal ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>websites</h1>
                     {websites.map(project => (
                         <Project
